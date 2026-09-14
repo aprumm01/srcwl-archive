@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SRCwL Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-content">
+        <h1 class="title">SRCwL Archive</h1>
+        <p class="subtitle">Sustainability, Resilience, and Computing within Limits</p>
+        <p class="description">A curated reading collection exploring the environmental and social costs of computing, AI, and data infrastructure. Each paper includes structured summaries, annotations, and cross-references to related work.</p>
+      </div>
+      <div class="meta">
+        <span class="paper-count"><span id="paper-count">0</span> papers</span>
+        <span class="separator">·</span>
+        <span class="course">I609 Fall 2024</span>
+      </div>
+    </header>
+
+    <section class="filters">
+      <div class="filter-group">
+        <span class="filter-label">Themes</span>
+        <div class="filter-buttons" id="theme-filters"></div>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Methods</span>
+        <div class="filter-buttons" id="method-filters"></div>
+      </div>
+      <button class="clear-filters" id="clear-filters" style="display: none;">Clear filters</button>
+    </section>
+
+    <section class="threads">
+      <h2 class="section-title">Cross-Cutting Themes</h2>
+      <div class="thread-cards" id="thread-cards"></div>
+    </section>
+
+    <section class="papers">
+      <h2 class="section-title">Papers</h2>
+      <div class="paper-list" id="paper-list"></div>
+    </section>
+
+    <section class="glossary">
+      <h2 class="section-title">Glossary</h2>
+      <p class="glossary-intro">Key terms and concepts used across the papers in this collection.</p>
+      <div class="glossary-search">
+        <input type="text" id="glossary-search" placeholder="Search terms..." aria-label="Search glossary">
+      </div>
+      <div class="glossary-list" id="glossary-list"></div>
+    </section>
+
+    <footer class="footer">
+      <p>Research topic: AI and sustainability, specifically data storage and the idea of disposable ideations.</p>
+      <p class="footer-note">Built for sharing. Summaries generated with study-partner; annotations follow Cornell University Library guidelines.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

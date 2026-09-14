@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "title": "SRCwL Archive",
+    "subtitle": "Sustainability, Resilience, and Computing within Limits",
+    "description": "A curated reading collection for I609, exploring the environmental and social costs of computing, AI, and data infrastructure.",
+    "researchTopic": "AI and sustainability, specifically data storage and the idea of disposable ideations, focused mostly on design, but also product development and software building.",
+    "lastUpdated": "2024-09-14"
+  },
+  "glossary": [],
+  "themes": [
+    {
+      "id": "cost-relocation",
+      "name": "Cost Relocation",
+      "description": "Cost doesn't disappear, it relocates — efficiency gains in one area surface as costs elsewhere",
+      "color": "#7DD3A7"
+    },
+    {
+      "id": "measurement-boundaries",
+      "name": "Measurement Boundaries",
+      "description": "Every measurement has an invisible boundary, and that's where the real cost hides",
+      "color": "#E8B87D"
+    },
+    {
+      "id": "physical-grounding",
+      "name": "Physical Grounding",
+      "description": "The abstraction of 'data' and 'the cloud' keeps getting re-grounded in physical constraint",
+      "color": "#A7C4E8"
+    }
+  ],
+  "methods": [
+    { "id": "empirical", "name": "Empirical Study" },
+    { "id": "survey", "name": "Survey" },
+    { "id": "review", "name": "Review/Position" },
+    { "id": "modeling", "name": "Modeling" },
+    { "id": "repository-mining", "name": "Repository Mining" }
+  ],
+  "papers": []
+}
