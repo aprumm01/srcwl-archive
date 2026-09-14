@@ -157,26 +157,38 @@
     return citation;
   }
 
-  // Render paper card (simplified — just the clickable row)
+  // Render paper card with expandable annotation
   function renderPaperCard(paper) {
     const themeTags = paper.themes.map(t =>
       `<span class="tag theme" data-theme="${t}">${getThemeName(t)}</span>`
     ).join('');
 
     return `
-      <article class="paper-card" data-paper-id="${paper.id}" data-themes="${paper.themes.join(',')}" data-methods="${paper.methods.join(',')}" tabindex="0" role="button">
-        <div class="paper-header">
+      <article class="paper-card" data-paper-id="${paper.id}" data-themes="${paper.themes.join(',')}" data-methods="${paper.methods.join(',')}">
+        <div class="paper-header" tabindex="0" role="button">
           <h3 class="paper-title">${paper.citation.title}</h3>
           <p class="paper-citation-short">${formatShortCitation(paper)}</p>
           <div class="paper-tags">
             ${themeTags}
           </div>
         </div>
+        <div class="paper-annotation-row">
+          <button class="annotation-toggle" aria-expanded="false">
+            <span class="annotation-toggle-text">Annotation</span>
+            <svg class="annotation-toggle-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M3 4.5L6 7.5L9 4.5"/>
+            </svg>
+          </button>
+          <button class="paper-detail-btn">Full summary →</button>
+        </div>
+        <div class="paper-annotation-body">
+          <p class="paper-annotation-text">${paper.annotation}</p>
+        </div>
       </article>
     `;
   }
 
-  // Render drawer content for a paper
+  // Render drawer content for a paper (summary only, annotation is on main page)
   function renderDrawerContent(paper) {
     const themeTags = paper.themes.map(t =>
       `<span class="tag theme" data-theme="${t}">${getThemeName(t)}</span>`
@@ -214,11 +226,6 @@
           ${themeTags}
           ${methodTags}
         </div>
-      </div>
-
-      <div class="drawer-section">
-        <p class="drawer-section-title">Annotation</p>
-        <p class="drawer-annotation">${paper.annotation}</p>
       </div>
 
       <div class="drawer-section">
@@ -274,6 +281,24 @@
     drawer.setAttribute('aria-hidden', 'true');
     drawerOverlay.classList.remove('visible');
     document.body.classList.remove('drawer-open');
+  }
+
+  // Toggle annotation expansion
+  function toggleAnnotation(card) {
+    const isExpanded = card.classList.contains('annotation-expanded');
+    const toggle = card.querySelector('.annotation-toggle');
+
+    // Close other expanded annotations
+    document.querySelectorAll('.paper-card.annotation-expanded').forEach(other => {
+      if (other !== card) {
+        other.classList.remove('annotation-expanded');
+        other.querySelector('.annotation-toggle').setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Toggle this card
+    card.classList.toggle('annotation-expanded');
+    toggle.setAttribute('aria-expanded', !isExpanded);
   }
 
   // Highlight and open a cross-referenced paper
@@ -368,10 +393,30 @@
     // Clear filters
     document.getElementById('clear-filters').addEventListener('click', clearFilters);
 
-    // Paper card clicks — open drawer
+    // Paper card clicks
     document.getElementById('paper-list').addEventListener('click', (e) => {
-      const card = e.target.closest('.paper-card');
-      if (card) {
+      // Annotation toggle
+      const toggle = e.target.closest('.annotation-toggle');
+      if (toggle) {
+        e.stopPropagation();
+        const card = toggle.closest('.paper-card');
+        toggleAnnotation(card);
+        return;
+      }
+
+      // Detail button — open drawer
+      const detailBtn = e.target.closest('.paper-detail-btn');
+      if (detailBtn) {
+        e.stopPropagation();
+        const card = detailBtn.closest('.paper-card');
+        openDrawer(card.dataset.paperId);
+        return;
+      }
+
+      // Header click — open drawer
+      const header = e.target.closest('.paper-header');
+      if (header) {
+        const card = header.closest('.paper-card');
         openDrawer(card.dataset.paperId);
       }
     });
@@ -379,9 +424,10 @@
     // Paper card keyboard navigation
     document.getElementById('paper-list').addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
-        const card = e.target.closest('.paper-card');
-        if (card) {
+        const header = e.target.closest('.paper-header');
+        if (header) {
           e.preventDefault();
+          const card = header.closest('.paper-card');
           openDrawer(card.dataset.paperId);
         }
       }
