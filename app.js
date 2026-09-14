@@ -472,7 +472,6 @@
 
     renderThemeFilters();
     renderMethodFilters();
-    renderThreadCards();
     renderPapers();
     renderGlossary();
     setupEventListeners();
