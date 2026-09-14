@@ -136,27 +136,40 @@
     return `${firstAuthor} (${paper.citation.year})`;
   }
 
+  // Format short citation for list view
+  function formatShortCitation(paper) {
+    const c = paper.citation;
+    const firstAuthor = c.authors[0].split(',')[0];
+    const authorStr = c.authors.length > 2
+      ? `${firstAuthor} et al.`
+      : c.authors.length === 2
+        ? `${firstAuthor} & ${c.authors[1].split(',')[0]}`
+        : firstAuthor;
+
+    let citation = `${authorStr} (${c.year})`;
+    if (c.venue) {
+      // Shorten venue name if too long
+      const shortVenue = c.venue.length > 50
+        ? c.venue.substring(0, 47) + '…'
+        : c.venue;
+      citation += ` · ${shortVenue}`;
+    }
+    return citation;
+  }
+
   // Render paper card (simplified — just the clickable row)
   function renderPaperCard(paper) {
     const themeTags = paper.themes.map(t =>
       `<span class="tag theme" data-theme="${t}">${getThemeName(t)}</span>`
     ).join('');
 
-    const methodTags = paper.methods.map(m =>
-      `<span class="tag method">${getMethodName(m)}</span>`
-    ).join('');
-
     return `
       <article class="paper-card" data-paper-id="${paper.id}" data-themes="${paper.themes.join(',')}" data-methods="${paper.methods.join(',')}" tabindex="0" role="button">
         <div class="paper-header">
-          <div class="paper-title-row">
-            <h3 class="paper-title">${paper.citation.title}</h3>
-            <span class="paper-year">${paper.citation.year}</span>
-          </div>
-          <p class="paper-authors">${formatAuthors(paper.citation.authors)}</p>
+          <h3 class="paper-title">${paper.citation.title}</h3>
+          <p class="paper-citation-short">${formatShortCitation(paper)}</p>
           <div class="paper-tags">
             ${themeTags}
-            ${methodTags}
           </div>
         </div>
       </article>
