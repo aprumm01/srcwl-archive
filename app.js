@@ -57,6 +57,12 @@
         <p>${theme.description}</p>
       </div>
     `).join('');
+
+    // Hide threads section if empty
+    const section = container.closest('.threads');
+    if (themes.length === 0 && section) {
+      section.style.display = 'none';
+    }
   }
 
   // Format authors for display
@@ -402,6 +408,13 @@
   // Render glossary
   function renderGlossary() {
     const container = document.getElementById('glossary-list');
+    const section = container.closest('.glossary');
+
+    // Hide glossary section if empty
+    if (glossary.length === 0) {
+      if (section) section.style.display = 'none';
+      return;
+    }
 
     // Sort glossary alphabetically
     const sortedGlossary = [...glossary].sort((a, b) =>
