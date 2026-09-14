@@ -157,7 +157,7 @@
     return citation;
   }
 
-  // Render paper card with expandable annotation
+  // Render paper card with expandable annotation and citation
   function renderPaperCard(paper) {
     const themeTags = paper.themes.map(t =>
       `<span class="tag theme" data-theme="${t}">${getThemeName(t)}</span>`
@@ -172,23 +172,32 @@
             ${themeTags}
           </div>
         </div>
-        <div class="paper-annotation-row">
+        <div class="paper-actions-row">
+          <button class="citation-toggle" aria-expanded="false">
+            <span>Citation</span>
+            <svg class="toggle-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M3 4.5L6 7.5L9 4.5"/>
+            </svg>
+          </button>
           <button class="annotation-toggle" aria-expanded="false">
-            <span class="annotation-toggle-text">Annotation</span>
-            <svg class="annotation-toggle-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+            <span>Annotation</span>
+            <svg class="toggle-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M3 4.5L6 7.5L9 4.5"/>
             </svg>
           </button>
           <button class="paper-detail-btn">Full summary →</button>
         </div>
-        <div class="paper-annotation-body">
+        <div class="paper-citation-body expandable-body">
+          <p class="paper-citation-text">${formatCitation(paper)}</p>
+        </div>
+        <div class="paper-annotation-body expandable-body">
           <p class="paper-annotation-text">${paper.annotation}</p>
         </div>
       </article>
     `;
   }
 
-  // Render drawer content for a paper (summary only, annotation is on main page)
+  // Render drawer content for a paper (summary only, annotation/citation on main page)
   function renderDrawerContent(paper) {
     const themeTags = paper.themes.map(t =>
       `<span class="tag theme" data-theme="${t}">${getThemeName(t)}</span>`
@@ -214,11 +223,6 @@
         <span>${formatAuthors(paper.citation.authors)}</span>
         <span class="year"> · ${paper.citation.year}</span>
       </p>
-
-      <div class="drawer-section">
-        <p class="drawer-section-title">Citation</p>
-        <p class="drawer-citation">${formatCitation(paper)}</p>
-      </div>
 
       <div class="drawer-section">
         <p class="drawer-section-title">Tags</p>
@@ -283,21 +287,22 @@
     document.body.classList.remove('drawer-open');
   }
 
-  // Toggle annotation expansion
-  function toggleAnnotation(card) {
-    const isExpanded = card.classList.contains('annotation-expanded');
-    const toggle = card.querySelector('.annotation-toggle');
+  // Toggle expandable section (citation or annotation)
+  function toggleExpandable(card, type) {
+    const className = `${type}-expanded`;
+    const isExpanded = card.classList.contains(className);
+    const toggle = card.querySelector(`.${type}-toggle`);
 
-    // Close other expanded annotations
-    document.querySelectorAll('.paper-card.annotation-expanded').forEach(other => {
+    // Close other expanded sections of same type in other cards
+    document.querySelectorAll(`.paper-card.${className}`).forEach(other => {
       if (other !== card) {
-        other.classList.remove('annotation-expanded');
-        other.querySelector('.annotation-toggle').setAttribute('aria-expanded', 'false');
+        other.classList.remove(className);
+        other.querySelector(`.${type}-toggle`).setAttribute('aria-expanded', 'false');
       }
     });
 
     // Toggle this card
-    card.classList.toggle('annotation-expanded');
+    card.classList.toggle(className);
     toggle.setAttribute('aria-expanded', !isExpanded);
   }
 
@@ -395,12 +400,21 @@
 
     // Paper card clicks
     document.getElementById('paper-list').addEventListener('click', (e) => {
-      // Annotation toggle
-      const toggle = e.target.closest('.annotation-toggle');
-      if (toggle) {
+      // Citation toggle
+      const citationToggle = e.target.closest('.citation-toggle');
+      if (citationToggle) {
         e.stopPropagation();
-        const card = toggle.closest('.paper-card');
-        toggleAnnotation(card);
+        const card = citationToggle.closest('.paper-card');
+        toggleExpandable(card, 'citation');
+        return;
+      }
+
+      // Annotation toggle
+      const annotationToggle = e.target.closest('.annotation-toggle');
+      if (annotationToggle) {
+        e.stopPropagation();
+        const card = annotationToggle.closest('.paper-card');
+        toggleExpandable(card, 'annotation');
         return;
       }
 

@@ -334,15 +334,15 @@ body.drawer-open {
   font-style: italic;
 }
 
-/* Annotation row */
-.paper-annotation-row {
+/* Actions row */
+.paper-actions-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 var(--space-sm) var(--space-md);
   gap: var(--space-md);
+  padding: 0 var(--space-sm) var(--space-md);
 }
 
+.citation-toggle,
 .annotation-toggle {
   display: flex;
   align-items: center;
@@ -358,15 +358,17 @@ body.drawer-open {
   transition: color var(--transition);
 }
 
+.citation-toggle:hover,
 .annotation-toggle:hover {
   color: var(--text-secondary);
 }
 
-.annotation-toggle-icon {
+.toggle-icon {
   transition: transform var(--transition);
 }
 
-.paper-card.annotation-expanded .annotation-toggle-icon {
+.paper-card.citation-expanded .citation-toggle .toggle-icon,
+.paper-card.annotation-expanded .annotation-toggle .toggle-icon {
   transform: rotate(180deg);
 }
 
@@ -379,6 +381,7 @@ body.drawer-open {
   border: none;
   padding: var(--space-xs) 0;
   cursor: pointer;
+  margin-left: auto;
   transition: opacity var(--transition);
 }
 
@@ -386,14 +389,34 @@ body.drawer-open {
   opacity: 0.8;
 }
 
-/* Annotation body */
-.paper-annotation-body {
+/* Expandable bodies */
+.expandable-body {
   display: none;
   padding: 0 var(--space-sm) var(--space-lg);
 }
 
+.paper-card.citation-expanded .paper-citation-body,
 .paper-card.annotation-expanded .paper-annotation-body {
   display: block;
+}
+
+.paper-citation-text {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.paper-citation-text em {
+  font-style: italic;
+}
+
+.paper-citation-text a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.paper-citation-text a:hover {
+  text-decoration: underline;
 }
 
 .paper-annotation-text {
@@ -401,8 +424,6 @@ body.drawer-open {
   font-size: 0.9375rem;
   color: var(--text-secondary);
   line-height: 1.75;
-  padding-left: var(--space-md);
-  border-left: 2px solid var(--border);
 }
 
 /* ----------------------------------------
