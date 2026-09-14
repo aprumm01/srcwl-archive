@@ -6,7 +6,43 @@
     "researchTopic": "AI and sustainability, specifically data storage and the idea of disposable ideations, focused mostly on design, but also product development and software building.",
     "lastUpdated": "2024-09-14"
   },
-  "glossary": [],
+  "glossary": [
+    {
+      "term": "Collapse Informatics",
+      "definition": "The study, design, and development of sociotechnical systems in the abundant present for use in a future of scarcity. The core challenge involves designing systems in our current context even though their primary usage will occur in a very different future situation.",
+      "papers": ["tomlinson-2013-collapse"]
+    },
+    {
+      "term": "Practice Theory",
+      "definition": "A theoretical framework that understands practice as developing and occurring in complex collective sociocultural contexts, not as individualistic behavioral adaptations or general societal norms. Practices involve the active integration of materials, meanings, and forms of competence.",
+      "papers": ["tomlinson-2013-collapse"]
+    },
+    {
+      "term": "Tertiary Artifacts",
+      "definition": "A concept from philosopher Marx Wartofsky describing artifacts that transcend immediate productive necessities and give freer rein to imagining 'possible worlds.' These artifacts emphasize creativity and link to possibilities beyond the everyday.",
+      "papers": ["tomlinson-2013-collapse"]
+    },
+    {
+      "term": "Purposefully Marginal Groups",
+      "definition": "Groups of people who act outside conventional societal expectations not due to marginalization but by choice, including artists, free thinkers, anarchists, and radical intellectuals who challenge mainstream habitus and may inject vibrant new ideas into culture.",
+      "papers": ["tomlinson-2013-collapse"]
+    },
+    {
+      "term": "Technofuturists",
+      "definition": "Collectives of technically skilled individuals who band together to promote future-oriented visions and experiment with new practices, often driven by the realization that collapse scenarios could affect them or by observing near-collapse events.",
+      "papers": ["tomlinson-2013-collapse"]
+    },
+    {
+      "term": "Reflexive Practice",
+      "definition": "Practices that seek to reflexively bring awareness in order to evaluate and change, deliberately questioning and destabilizing everyday routines rather than enacting habitual, taken-for-granted behaviors.",
+      "papers": ["tomlinson-2013-collapse"]
+    },
+    {
+      "term": "Here-and-Now",
+      "definition": "The typical temporal framing of practice theory that focuses on present practice. Collapse informatics challenges this by requiring consideration of how today's practices connect to possible future scenarios decades away.",
+      "papers": ["tomlinson-2013-collapse"]
+    }
+  ],
   "themes": [
     {
       "id": "cost-relocation",
@@ -25,6 +61,12 @@
       "name": "Physical Grounding",
       "description": "The abstraction of 'data' and 'the cloud' keeps getting re-grounded in physical constraint",
       "color": "#A7C4E8"
+    },
+    {
+      "id": "design-futures",
+      "name": "Design for Futures",
+      "description": "Building systems today for radically different tomorrow — anticipating scarcity, collapse, and alternative trajectories",
+      "color": "#D4A7E8"
     }
   ],
   "methods": [
@@ -32,7 +74,43 @@
     { "id": "survey", "name": "Survey" },
     { "id": "review", "name": "Review/Position" },
     { "id": "modeling", "name": "Modeling" },
-    { "id": "repository-mining", "name": "Repository Mining" }
+    { "id": "repository-mining", "name": "Repository Mining" },
+    { "id": "theoretical", "name": "Theoretical Framework" },
+    { "id": "design", "name": "Design Research" }
   ],
-  "papers": []
+  "papers": [
+    {
+      "id": "tomlinson-2013-collapse",
+      "citation": {
+        "authors": ["Tomlinson, B.", "Blevis, E.", "Nardi, B.", "Patterson, D. J.", "Silberman, M. S.", "Pan, Y."],
+        "year": 2013,
+        "title": "Collapse Informatics and Practice: Theory, Method, and Design",
+        "venue": "ACM Transactions on Computer-Human Interaction",
+        "volume": "20",
+        "issue": "4",
+        "pages": "Article 24",
+        "doi": "10.1145/2493431"
+      },
+      "themes": ["design-futures", "physical-grounding"],
+      "methods": ["theoretical", "design"],
+      "annotation": "Tomlinson and colleagues, HCI researchers from UC Irvine, Indiana University, and the Bureau of Economic Interpretation, introduce collapse informatics as a research agenda for designing sociotechnical systems in today's abundance for use in a future characterized by scarcity. Drawing on practice theory, particularly Schatzki's conception of practice as 'materially mediated arrays of human activity centrally organized around shared practical understanding,' they argue that HCI researchers can intervene through everyday practice and designed artifacts rather than through political or institutional change. The article proposes three methodological adjustments to practice theory: expanding temporal horizons beyond the here-and-now, conducting comparative research across diverse contexts, and continuously checkpointing against evolving conditions. The article is useful for research on AI and sustainability because it reframes technology design as fundamentally future-oriented, requiring designers to account for scenarios where current resource assumptions no longer hold. Unlike papers focused on measuring present environmental costs, this work establishes the theoretical foundation for anticipatory, collapse-aware design practice. The intended audience is HCI researchers, sustainable design practitioners, and scholars in practice theory.",
+      "summary": {
+        "overview": "This foundational paper introduces collapse informatics as a new research domain within HCI, arguing that the field must begin preparing for potential civilizational collapse. The authors draw on archaeological evidence that most complex societies eventually collapse, defined by Joseph Tainter as 'a rapid, significant loss of an established level of sociopolitical complexity.' Rather than treating collapse as apocalyptic fiction, they frame it as a design context requiring immediate attention while resources remain abundant.",
+        "keyFindings": [
+          "Practice theory provides a useful lens for collapse informatics because it focuses on collective, materially-mediated activities that can be studied and influenced through design interventions",
+          "The temporal scope of practice theory must expand from its typical 'here-and-now' focus to accommodate multi-lifespan timeframes relevant to collapse scenarios",
+          "Two key populations merit study: 'purposefully marginal groups' who deliberately live outside mainstream consumption, and 'technofuturists' who experiment with collapse-ready technologies",
+          "Design practice for collapse must track not just what is invented but what is displaced, and account for iterative adaptation to unpredictable future conditions"
+        ],
+        "centralArgument": "The HCI community has a unique opportunity and responsibility to design ICT systems for potential futures of scarcity. By thinking now about life after collapse, we may both prepare for such an outcome and make it less likely."
+      },
+      "discussionQuestions": [
+        "How do we balance designing for collapse (which some might see as defeatist) with efforts to prevent collapse through sustainability initiatives?",
+        "What are the ethical implications of studying 'purposefully marginal groups' as models for collapse-ready living? Does this romanticize or appropriate their practices?",
+        "The paper was published in 2013. How have developments in AI, climate change, and global infrastructure since then validated or complicated its predictions?",
+        "What would a 'tertiary artifact' look like in today's AI ecosystem, one that helps people imagine possible worlds rather than simply optimizing current practices?"
+      ],
+      "crossReferences": []
+    }
+  ]
 }

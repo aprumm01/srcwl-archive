@@ -56,6 +56,10 @@ body {
   min-height: 100vh;
 }
 
+body.drawer-open {
+  overflow: hidden;
+}
+
 ::selection {
   background: var(--text);
   color: var(--bg);
@@ -263,10 +267,16 @@ body {
 /* Paper card */
 .paper-card {
   border-top: 1px solid var(--border);
+  cursor: pointer;
+  transition: background var(--transition);
 }
 
 .paper-card:last-child {
   border-bottom: 1px solid var(--border);
+}
+
+.paper-card:hover {
+  background: var(--surface);
 }
 
 .paper-card.hidden {
@@ -279,8 +289,7 @@ body {
 
 /* Paper header */
 .paper-header {
-  padding: var(--space-lg) 0;
-  cursor: pointer;
+  padding: var(--space-lg) var(--space-sm);
   display: grid;
   gap: var(--space-xs);
 }
@@ -337,25 +346,107 @@ body {
   font-style: italic;
 }
 
-/* Paper body */
-.paper-body {
-  display: none;
-  padding-bottom: var(--space-xl);
+/* ----------------------------------------
+   Drawer
+   ---------------------------------------- */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms ease, visibility 200ms ease;
+  z-index: 100;
 }
 
-.paper-card.expanded .paper-body {
-  display: block;
+.drawer-overlay.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
-.paper-section {
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(540px, 100vw - 40px);
+  background: var(--bg);
+  border-left: 1px solid var(--border);
+  transform: translateX(100%);
+  transition: transform 250ms ease;
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.drawer-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color var(--transition), background var(--transition);
+}
+
+.drawer-close:hover {
+  color: var(--text);
+  background: var(--surface);
+}
+
+.drawer-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-xl) var(--space-lg) var(--space-3xl);
+}
+
+/* Drawer content sections */
+.drawer-title {
+  font-family: var(--font-serif);
+  font-size: 1.375rem;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--text);
+  margin-bottom: var(--space-sm);
+}
+
+.drawer-meta {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
   margin-bottom: var(--space-lg);
 }
 
-.paper-section:last-child {
-  margin-bottom: 0;
+.drawer-meta span {
+  display: inline;
 }
 
-.paper-section-title {
+.drawer-meta .year {
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+.drawer-section {
+  margin-bottom: var(--space-xl);
+}
+
+.drawer-section-title {
   font-size: 0.6875rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -364,50 +455,48 @@ body {
   margin-bottom: var(--space-sm);
 }
 
-/* Citation */
-.citation {
+.drawer-citation {
   font-size: 0.8125rem;
   color: var(--text-secondary);
   line-height: 1.6;
 }
 
-.citation em {
+.drawer-citation em {
   font-style: italic;
 }
 
-.citation a {
+.drawer-citation a {
   color: var(--link);
   text-decoration: none;
 }
 
-.citation a:hover {
+.drawer-citation a:hover {
   text-decoration: underline;
 }
 
-/* Annotation & Summary */
-.annotation,
-.summary-overview,
-.summary-argument {
+.drawer-annotation,
+.drawer-overview,
+.drawer-argument {
   font-family: var(--font-serif);
   font-size: 1rem;
   color: var(--text);
   line-height: 1.75;
 }
 
-.summary-argument {
+.drawer-argument {
   padding-left: var(--space-md);
   border-left: 2px solid var(--border);
-  margin-top: var(--space-md);
   font-style: italic;
   color: var(--text-secondary);
+  margin-top: var(--space-md);
 }
 
-.summary-findings {
+.drawer-findings {
   list-style: none;
   margin: var(--space-md) 0;
 }
 
-.summary-findings li {
+.drawer-findings li {
   font-size: 0.875rem;
   color: var(--text-secondary);
   line-height: 1.6;
@@ -416,15 +505,44 @@ body {
   margin-bottom: var(--space-sm);
 }
 
-.summary-findings li::before {
+.drawer-findings li::before {
   content: '–';
   position: absolute;
   left: 0;
   color: var(--text-muted);
 }
 
-/* Cross references */
-.cross-references {
+.drawer-questions {
+  list-style: none;
+  counter-reset: q;
+}
+
+.drawer-questions li {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding-left: var(--space-lg);
+  position: relative;
+  margin-bottom: var(--space-sm);
+  counter-increment: q;
+}
+
+.drawer-questions li::before {
+  content: counter(q) '.';
+  position: absolute;
+  left: 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.drawer-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-sm);
+}
+
+.drawer-cross-refs {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-xs) var(--space-sm);
@@ -445,31 +563,6 @@ body {
 
 .cross-ref:hover {
   text-decoration-color: var(--link);
-}
-
-/* Discussion questions */
-.discussion-questions {
-  list-style: none;
-  counter-reset: q;
-}
-
-.discussion-questions li {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  padding-left: var(--space-lg);
-  position: relative;
-  margin-bottom: var(--space-sm);
-  counter-increment: q;
-}
-
-.discussion-questions li::before {
-  content: counter(q) '.';
-  position: absolute;
-  left: 0;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
 }
 
 /* ----------------------------------------
@@ -626,7 +719,6 @@ body {
    Utilities & animations
    ---------------------------------------- */
 @media (prefers-reduced-motion: no-preference) {
-  .paper-body,
   .glossary-body {
     animation: fadeIn 150ms ease;
   }
@@ -644,7 +736,7 @@ body {
     color: black;
   }
 
-  .filters, .clear-filters, .cross-ref, .glossary-search {
+  .filters, .clear-filters, .cross-ref, .glossary-search, .drawer, .drawer-overlay {
     display: none;
   }
 
@@ -652,7 +744,7 @@ body {
     break-inside: avoid;
   }
 
-  .paper-body, .glossary-body {
+  .glossary-body {
     display: block !important;
   }
 }

@@ -12,6 +12,12 @@
   let glossary = [];
   let activeFilters = { themes: new Set(), methods: new Set() };
 
+  // DOM refs
+  const drawer = document.getElementById('paper-drawer');
+  const drawerOverlay = document.getElementById('drawer-overlay');
+  const drawerContent = document.getElementById('drawer-content');
+  const drawerClose = document.getElementById('drawer-close');
+
   // Load data
   async function loadData() {
     try {
@@ -85,6 +91,17 @@
       citation += `<em>${c.venue}</em>`;
     }
 
+    if (c.volume) {
+      citation += `, <em>${c.volume}</em>`;
+      if (c.issue) {
+        citation += `(${c.issue})`;
+      }
+    }
+
+    if (c.pages) {
+      citation += `, ${c.pages}`;
+    }
+
     if (c.doi) {
       citation += `. <a href="https://doi.org/${c.doi}" target="_blank" rel="noopener">https://doi.org/${c.doi}</a>`;
     } else if (c.url) {
@@ -119,8 +136,35 @@
     return `${firstAuthor} (${paper.citation.year})`;
   }
 
-  // Render paper card
+  // Render paper card (simplified — just the clickable row)
   function renderPaperCard(paper) {
+    const themeTags = paper.themes.map(t =>
+      `<span class="tag theme" data-theme="${t}">${getThemeName(t)}</span>`
+    ).join('');
+
+    const methodTags = paper.methods.map(m =>
+      `<span class="tag method">${getMethodName(m)}</span>`
+    ).join('');
+
+    return `
+      <article class="paper-card" data-paper-id="${paper.id}" data-themes="${paper.themes.join(',')}" data-methods="${paper.methods.join(',')}" tabindex="0" role="button">
+        <div class="paper-header">
+          <div class="paper-title-row">
+            <h3 class="paper-title">${paper.citation.title}</h3>
+            <span class="paper-year">${paper.citation.year}</span>
+          </div>
+          <p class="paper-authors">${formatAuthors(paper.citation.authors)}</p>
+          <div class="paper-tags">
+            ${themeTags}
+            ${methodTags}
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  // Render drawer content for a paper
+  function renderDrawerContent(paper) {
     const themeTags = paper.themes.map(t =>
       `<span class="tag theme" data-theme="${t}">${getThemeName(t)}</span>`
     ).join('');
@@ -133,60 +177,59 @@
       ? paper.crossReferences.map(ref =>
           `<button class="cross-ref" data-paper-id="${ref}">${getShortRef(ref)}</button>`
         ).join('')
-      : '<span style="color: var(--text-muted); font-size: 0.875rem;">None specified</span>';
+      : '<span style="color: var(--text-muted); font-size: 0.8125rem;">None specified</span>';
 
     const findings = paper.summary.keyFindings.map(f => `<li>${f}</li>`).join('');
 
     const questions = paper.discussionQuestions.map(q => `<li>${q}</li>`).join('');
 
     return `
-      <article class="paper-card" data-paper-id="${paper.id}" data-themes="${paper.themes.join(',')}" data-methods="${paper.methods.join(',')}">
-        <div class="paper-header" tabindex="0" role="button" aria-expanded="false">
-          <div class="paper-title-row">
-            <h3 class="paper-title">${paper.citation.title}</h3>
-            <span class="paper-year">${paper.citation.year}</span>
-          </div>
-          <p class="paper-authors">${formatAuthors(paper.citation.authors)}</p>
-          <div class="paper-tags">
-            ${themeTags}
-            ${methodTags}
-          </div>
+      <h2 class="drawer-title">${paper.citation.title}</h2>
+      <p class="drawer-meta">
+        <span>${formatAuthors(paper.citation.authors)}</span>
+        <span class="year"> · ${paper.citation.year}</span>
+      </p>
+
+      <div class="drawer-section">
+        <p class="drawer-section-title">Citation</p>
+        <p class="drawer-citation">${formatCitation(paper)}</p>
+      </div>
+
+      <div class="drawer-section">
+        <p class="drawer-section-title">Tags</p>
+        <div class="drawer-tags">
+          ${themeTags}
+          ${methodTags}
         </div>
-        <div class="paper-body">
-          <div class="paper-section">
-            <h4 class="paper-section-title">Citation</h4>
-            <p class="citation">${formatCitation(paper)}</p>
-          </div>
+      </div>
 
-          <div class="paper-section">
-            <h4 class="paper-section-title">Annotation</h4>
-            <p class="annotation">${paper.annotation}</p>
-          </div>
+      <div class="drawer-section">
+        <p class="drawer-section-title">Annotation</p>
+        <p class="drawer-annotation">${paper.annotation}</p>
+      </div>
 
-          <div class="paper-section">
-            <h4 class="paper-section-title">Summary</h4>
-            <p class="summary-overview">${paper.summary.overview}</p>
-            <ul class="summary-findings">
-              ${findings}
-            </ul>
-            <p class="summary-argument">${paper.summary.centralArgument}</p>
-          </div>
+      <div class="drawer-section">
+        <p class="drawer-section-title">Summary</p>
+        <p class="drawer-overview">${paper.summary.overview}</p>
+        <ul class="drawer-findings">
+          ${findings}
+        </ul>
+        <p class="drawer-argument">${paper.summary.centralArgument}</p>
+      </div>
 
-          <div class="paper-section">
-            <h4 class="paper-section-title">Cross-References</h4>
-            <div class="cross-references">
-              ${crossRefs}
-            </div>
-          </div>
-
-          <div class="paper-section">
-            <h4 class="paper-section-title">Discussion Questions</h4>
-            <ol class="discussion-questions">
-              ${questions}
-            </ol>
-          </div>
+      <div class="drawer-section">
+        <p class="drawer-section-title">Cross-References</p>
+        <div class="drawer-cross-refs">
+          ${crossRefs}
         </div>
-      </article>
+      </div>
+
+      <div class="drawer-section">
+        <p class="drawer-section-title">Discussion Questions</p>
+        <ol class="drawer-questions">
+          ${questions}
+        </ol>
+      </div>
     `;
   }
 
@@ -197,49 +240,55 @@
     document.getElementById('paper-count').textContent = papers.length;
   }
 
-  // Toggle paper expansion
-  function togglePaper(card) {
-    const isExpanded = card.classList.contains('expanded');
-    const header = card.querySelector('.paper-header');
+  // Open drawer with paper content
+  function openDrawer(paperId) {
+    const paper = getPaperById(paperId);
+    if (!paper) return;
 
-    // Close other expanded cards
-    document.querySelectorAll('.paper-card.expanded').forEach(other => {
-      if (other !== card) {
-        other.classList.remove('expanded');
-        other.querySelector('.paper-header').setAttribute('aria-expanded', 'false');
-      }
-    });
+    drawerContent.innerHTML = renderDrawerContent(paper);
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+    drawerOverlay.classList.add('visible');
+    document.body.classList.add('drawer-open');
 
-    // Toggle this card
-    card.classList.toggle('expanded');
-    header.setAttribute('aria-expanded', !isExpanded);
-
-    // Clear any cross-reference highlights
-    document.querySelectorAll('.paper-card.cross-referenced').forEach(el => {
-      el.classList.remove('cross-referenced');
-    });
+    // Focus the close button for accessibility
+    drawerClose.focus();
   }
 
-  // Highlight and scroll to a cross-referenced paper
+  // Close drawer
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+    drawerOverlay.classList.remove('visible');
+    document.body.classList.remove('drawer-open');
+  }
+
+  // Highlight and open a cross-referenced paper
   function highlightCrossRef(paperId) {
     const targetCard = document.querySelector(`.paper-card[data-paper-id="${paperId}"]`);
     if (!targetCard) return;
 
-    // Remove existing highlights
-    document.querySelectorAll('.paper-card.cross-referenced').forEach(el => {
-      el.classList.remove('cross-referenced');
-    });
+    // Close current drawer
+    closeDrawer();
 
-    // Add highlight
-    targetCard.classList.add('cross-referenced');
+    // Small delay so the drawer close animation starts
+    setTimeout(() => {
+      // Remove existing highlights
+      document.querySelectorAll('.paper-card.cross-referenced').forEach(el => {
+        el.classList.remove('cross-referenced');
+      });
 
-    // Scroll into view
-    targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // Add highlight
+      targetCard.classList.add('cross-referenced');
 
-    // Expand the card
-    if (!targetCard.classList.contains('expanded')) {
-      togglePaper(targetCard);
-    }
+      // Scroll into view
+      targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      // Open the new paper's drawer after scroll
+      setTimeout(() => {
+        openDrawer(paperId);
+      }, 400);
+    }, 100);
   }
 
   // Apply filters
@@ -306,33 +355,44 @@
     // Clear filters
     document.getElementById('clear-filters').addEventListener('click', clearFilters);
 
-    // Paper card clicks
+    // Paper card clicks — open drawer
     document.getElementById('paper-list').addEventListener('click', (e) => {
-      // Cross-reference click
+      const card = e.target.closest('.paper-card');
+      if (card) {
+        openDrawer(card.dataset.paperId);
+      }
+    });
+
+    // Paper card keyboard navigation
+    document.getElementById('paper-list').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        const card = e.target.closest('.paper-card');
+        if (card) {
+          e.preventDefault();
+          openDrawer(card.dataset.paperId);
+        }
+      }
+    });
+
+    // Drawer close button
+    drawerClose.addEventListener('click', closeDrawer);
+
+    // Drawer overlay click
+    drawerOverlay.addEventListener('click', closeDrawer);
+
+    // Escape key closes drawer
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('open')) {
+        closeDrawer();
+      }
+    });
+
+    // Cross-reference clicks in drawer
+    drawerContent.addEventListener('click', (e) => {
       const crossRef = e.target.closest('.cross-ref');
       if (crossRef) {
         e.stopPropagation();
         highlightCrossRef(crossRef.dataset.paperId);
-        return;
-      }
-
-      // Header click
-      const header = e.target.closest('.paper-header');
-      if (header) {
-        const card = header.closest('.paper-card');
-        togglePaper(card);
-      }
-    });
-
-    // Keyboard navigation
-    document.getElementById('paper-list').addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        const header = e.target.closest('.paper-header');
-        if (header) {
-          e.preventDefault();
-          const card = header.closest('.paper-card');
-          togglePaper(card);
-        }
       }
     });
 
@@ -357,7 +417,7 @@
       const paperLink = e.target.closest('.glossary-paper-link');
       if (paperLink) {
         e.stopPropagation();
-        highlightCrossRef(paperLink.dataset.paperId);
+        openDrawer(paperLink.dataset.paperId);
         return;
       }
 
