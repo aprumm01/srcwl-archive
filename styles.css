@@ -350,7 +350,7 @@ body.drawer-open {
   top: 0;
   right: 0;
   bottom: 0;
-  width: min(540px, 100vw - 40px);
+  width: min(675px, 100vw - 40px);
   background: var(--bg);
   border-left: 1px solid var(--border);
   transform: translateX(100%);
