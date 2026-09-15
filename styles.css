@@ -13,10 +13,10 @@
   --border: #2D3239;
   --border-subtle: #252930;
 
-  /* Text hierarchy */
+  /* Text hierarchy — WCAG AA compliant */
   --text: #F0F2F4;
-  --text-secondary: #A0A8B0;
-  --text-muted: #5C6370;
+  --text-secondary: #B8BFC7;
+  --text-muted: #8A929C;
 
   /* Accent — warm amber for sustainability theme */
   --accent: #E8B87D;
