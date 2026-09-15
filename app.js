@@ -10,7 +10,6 @@
   let themes = [];
   let methods = [];
   let glossary = [];
-  let activeFilters = { themes: new Set(), methods: new Set() };
 
   // DOM refs
   const drawer = document.getElementById('paper-drawer');
@@ -31,43 +30,6 @@
     } catch (error) {
       console.error('Failed to load papers data:', error);
       return null;
-    }
-  }
-
-  // Render theme filter buttons
-  function renderThemeFilters() {
-    const container = document.getElementById('theme-filters');
-    container.innerHTML = themes.map(theme => `
-      <button class="filter-btn" data-theme="${theme.id}" data-filter-type="theme">
-        ${theme.name}
-      </button>
-    `).join('');
-  }
-
-  // Render method filter buttons
-  function renderMethodFilters() {
-    const container = document.getElementById('method-filters');
-    container.innerHTML = methods.map(method => `
-      <button class="filter-btn" data-method="${method.id}" data-filter-type="method">
-        ${method.name}
-      </button>
-    `).join('');
-  }
-
-  // Render thread cards
-  function renderThreadCards() {
-    const container = document.getElementById('thread-cards');
-    container.innerHTML = themes.map(theme => `
-      <div class="thread-card" data-theme="${theme.id}">
-        <h3>${theme.name}</h3>
-        <p>${theme.description}</p>
-      </div>
-    `).join('');
-
-    // Hide threads section if empty
-    const section = container.closest('.threads');
-    if (themes.length === 0 && section) {
-      section.style.display = 'none';
     }
   }
 
@@ -348,70 +310,8 @@
     }, 100);
   }
 
-  // Apply filters
-  function applyFilters() {
-    const hasActiveFilters = activeFilters.themes.size > 0 || activeFilters.methods.size > 0;
-
-    document.querySelectorAll('.paper-card').forEach(card => {
-      const cardThemes = card.dataset.themes.split(',');
-      const cardMethods = card.dataset.methods.split(',');
-
-      let matchesTheme = activeFilters.themes.size === 0 ||
-        [...activeFilters.themes].some(t => cardThemes.includes(t));
-      let matchesMethod = activeFilters.methods.size === 0 ||
-        [...activeFilters.methods].some(m => cardMethods.includes(m));
-
-      if (matchesTheme && matchesMethod) {
-        card.classList.remove('hidden');
-      } else {
-        card.classList.add('hidden');
-      }
-    });
-
-    // Show/hide clear button
-    document.getElementById('clear-filters').style.display = hasActiveFilters ? 'block' : 'none';
-
-    // Update visible count
-    const visibleCount = document.querySelectorAll('.paper-card:not(.hidden)').length;
-    document.getElementById('paper-count').textContent = visibleCount;
-  }
-
-  // Clear all filters
-  function clearFilters() {
-    activeFilters.themes.clear();
-    activeFilters.methods.clear();
-
-    document.querySelectorAll('.filter-btn.active').forEach(btn => {
-      btn.classList.remove('active');
-    });
-
-    applyFilters();
-  }
-
   // Set up event listeners
   function setupEventListeners() {
-    // Filter buttons
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filterType = btn.dataset.filterType;
-        const value = filterType === 'theme' ? btn.dataset.theme : btn.dataset.method;
-        const filterSet = filterType === 'theme' ? activeFilters.themes : activeFilters.methods;
-
-        if (filterSet.has(value)) {
-          filterSet.delete(value);
-          btn.classList.remove('active');
-        } else {
-          filterSet.add(value);
-          btn.classList.add('active');
-        }
-
-        applyFilters();
-      });
-    });
-
-    // Clear filters
-    document.getElementById('clear-filters').addEventListener('click', clearFilters);
-
     // Paper card clicks
     document.getElementById('paper-list').addEventListener('click', (e) => {
       // Annotation toggle
@@ -474,21 +374,6 @@
       }
     });
 
-    // Thread card clicks (filter to that theme)
-    document.getElementById('thread-cards').addEventListener('click', (e) => {
-      const card = e.target.closest('.thread-card');
-      if (card) {
-        const themeId = card.dataset.theme;
-        clearFilters();
-        activeFilters.themes.add(themeId);
-        document.querySelector(`.filter-btn[data-theme="${themeId}"]`).classList.add('active');
-        applyFilters();
-
-        // Scroll to papers
-        document.querySelector('.papers').scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-
     // Glossary item clicks
     document.getElementById('glossary-list').addEventListener('click', (e) => {
       // Paper link click
@@ -535,8 +420,6 @@
       return;
     }
 
-    renderThemeFilters();
-    renderMethodFilters();
     renderPapers();
     renderGlossary();
     setupEventListeners();
