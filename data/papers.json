@@ -8,6 +8,41 @@
   },
   "glossary": [
     {
+      "term": "Polycentric Governance",
+      "definition": "Governance systems characterized by multiple governing authorities at differing scales rather than a single monocentric unit. These authorities are formally independent but may coordinate through competition, contracts, and conflict resolution mechanisms. Ostrom argued polycentric systems enable experimentation, learning, and adaptation.",
+      "papers": ["ostrom-2010-polycentric"]
+    },
+    {
+      "term": "Steady-State Economy",
+      "definition": "An economic model proposed by Herman Daly that maintains material throughput at a stable rate within ecological limits, rather than pursuing perpetual growth. Culture and quality of life can still evolve, but physical resource consumption remains bounded.",
+      "papers": ["nardi-2018-limits"]
+    },
+    {
+      "term": "Jevons Paradox",
+      "definition": "The phenomenon where more efficient technologies often encourage greater use of a resource, reducing or eliminating expected savings. Also called the rebound effect. Challenges the assumption that technological efficiency improvements automatically reduce environmental impact.",
+      "papers": ["nardi-2018-limits"]
+    },
+    {
+      "term": "Cornucopian Paradigm",
+      "definition": "A worldview where the design of new services stimulates demand, which drives growth of increased infrastructure capacity, which then cycles back to enable new services in a self-perpetuating cycle. Most computing research implicitly assumes this paradigm.",
+      "papers": ["nardi-2018-limits"]
+    },
+    {
+      "term": "Climate Tipping Point",
+      "definition": "The point at which any efforts to stop climate change from happening arrive too late. Beyond this threshold, positive-feedback mechanisms induce continued warming regardless of human efforts to reduce emissions.",
+      "papers": ["blevis-2010-tipping-point", "tomlinson-2012-collapse-chi"]
+    },
+    {
+      "term": "Adaptive Capacity",
+      "definition": "The extent to which a system can modify its circumstances to move to a less vulnerable condition. In collapse informatics, this describes the potential (not actual) ability to respond to changing conditions.",
+      "papers": ["tomlinson-2012-collapse-chi"]
+    },
+    {
+      "term": "Sustainability in Designing",
+      "definition": "A third strand of sustainable interaction design (beyond 'in design' and 'through design') that focuses on how interactive technologies are conceived—encompassing design processes and methodologies where sustainability emanates from the design process itself.",
+      "papers": ["besana-2024-sid-review"]
+    },
+    {
       "term": "Epistemic Tradition",
       "definition": "A framework of knowledge production with its own standards for what counts as valid knowledge and appropriate evaluation criteria. In design research, different epistemic traditions (experiential, methodic, programmatic, dialectic) shape how contributions are judged.",
       "papers": ["krogh-koskinen-2020-epistemic"]
@@ -30,7 +65,7 @@
     {
       "term": "Collapse Informatics",
       "definition": "The study, design, and development of sociotechnical systems in the abundant present for use in a future of scarcity. The core challenge involves designing systems in our current context even though their primary usage will occur in a very different future situation.",
-      "papers": ["tomlinson-2013-collapse"]
+      "papers": ["tomlinson-2013-collapse", "tomlinson-2012-collapse-chi", "besana-2024-sid-review"]
     },
     {
       "term": "Practice Theory",
@@ -161,6 +196,164 @@
         "The authors suggest researchers should choose evaluation approaches that 'anticipate the expectations of their audience.' Is this pragmatic wisdom or strategic game-playing?"
       ],
       "crossReferences": ["tomlinson-2013-collapse"]
+    },
+    {
+      "id": "tomlinson-2012-collapse-chi",
+      "citation": {
+        "authors": ["Tomlinson, B.", "Silberman, M. S.", "Patterson, D.", "Pan, Y.", "Blevis, E."],
+        "year": 2012,
+        "title": "Collapse Informatics: Augmenting the Sustainability & ICT4D Discourse in HCI",
+        "venue": "CHI '12: Proceedings of the SIGCHI Conference on Human Factors in Computing Systems",
+        "pages": "655–664",
+        "doi": "10.1145/2207676.2207770"
+      },
+      "themes": ["design-futures", "physical-grounding"],
+      "methods": ["theoretical", "design"],
+      "summaryFile": "papers/Tomlinson-2012-CollapseInformatics-summary.md",
+      "annotation": "Tomlinson and colleagues introduce collapse informatics as a new research genre within HCI at CHI 2012. They argue that given scientific evidence suggesting potential civilizational collapse due to climate change, peak oil, and systemic complexity, HCI researchers should begin designing sociotechnical systems now—while resources are abundant—for use in future contexts of scarcity and reduced infrastructure. Drawing on archaeological theories of collapse (Tainter), environmental science (IPCC projections), and economic frameworks (Max-Neef's human needs theory), they outline a research agenda that complements existing sustainable HCI and ICT4D work. Key contributions include distinguishing collapse informatics from related fields, proposing evaluation frameworks based on vulnerability and adaptive capacity, and providing concrete project examples such as the Climate Change Habitability Index. This is the earlier conference version of the fuller 2013 TOCHI article.",
+      "summary": {
+        "documentOverview": "Bill Tomlinson, M. Six Silberman, Don Patterson, and Yue Pan from UC Irvine, along with Eli Blevis from Indiana University, represent an interdisciplinary team combining expertise in HCI, sustainable computing, and design research. This CHI 2012 conference paper introduces collapse informatics as a novel research genre, published in the premier international conference for human-computer interaction research.",
+        "researchOverview": "The central research question: How can the HCI community prepare for and contribute to a potential future of civilizational collapse by designing sociotechnical systems in the present that will remain useful in contexts of scarcity? They define collapse informatics as 'the study, design, and development of sociotechnical systems in the abundant present for use in a future of scarcity' (p. 655-656). Drawing from Tainter, collapse is 'a rapid, significant loss of an established level of sociopolitical complexity' occurring over 'no more than a few decades.'",
+        "theoriesOfKnowledge": "The paper draws on Tainter's theory of collapse, Max-Neef's theory of basic human needs (subsistence, protection, affection, understanding, participation, idleness, creation, identity, and freedom), vulnerability and adaptive capacity frameworks from environmental change research (Luers et al.), DiSalvo's genre theory of HCI research, and Tony Fry's concepts of redirective practice and acts of elimination.",
+        "centralArguments": "The HCI community must expand beyond sustainability and mitigation to include preparation for potential civilizational collapse. Designing sociotechnical systems now for future scarcity is both prudent and necessary. The authors state: 'We are at a crossroads where the logic that applies is the logic of hoping for the best and preparing for the worst.' Collapse informatics is distinct from but related to sustainable HCI, ICT4D, and crisis informatics.",
+        "evidence": "Environmental evidence includes IPCC reports indicating a likely tipping point by 2040, Diamond's research on historical collapse, and peak oil analysis. Archaeological evidence from Tainter shows most civilizations have collapsed. The paper includes design sketches and 'fictional abstracts' as speculative design exercises. Limitation: theoretical/conceptual paper rather than empirical study.",
+        "conclusion": "Collapse informatics represents a necessary expansion of HCI's scope. The core insight: design for users who may not yet exist in contexts that do not yet exist. ICT is both part of the problem and potential solution. Even if collapse never occurs, this research benefits ICT4D, disaster preparedness, and localized contexts. Remember: collapse is not apocalypse—it unfolds over decades, not days."
+      },
+      "discussionQuestions": [
+        "How does designing for 'users who do not yet exist in contexts that do not yet exist' challenge conventional user-centered design methods?",
+        "The authors distinguish collapse informatics from crisis informatics. What are the implications of this distinction for how we think about time horizons in design?",
+        "What role might AI play in collapse informatics projects? Could AI systems themselves be collapse-ready?",
+        "The paper argues collapse informatics research has value even if collapse never occurs. Is this a rhetorical strategy or a genuine methodological insight?"
+      ],
+      "crossReferences": ["tomlinson-2013-collapse", "blevis-2010-tipping-point", "nardi-2018-limits"]
+    },
+    {
+      "id": "blevis-2010-tipping-point",
+      "citation": {
+        "authors": ["Blevis, E.", "Blevis, S."],
+        "year": 2010,
+        "title": "Hope for the Best and Prepare for the Worst: Interaction Design and the Tipping Point",
+        "venue": "interactions",
+        "volume": "17",
+        "issue": "5",
+        "pages": "26–30",
+        "doi": "10.1145/1836216.1836223"
+      },
+      "themes": ["design-futures", "physical-grounding"],
+      "methods": ["review", "design"],
+      "summaryFile": "papers/Blevis-Blevis-2010-Interaction-Design-Tipping-Point-Summary.md",
+      "annotation": "Eli Blevis and Shunying Blevis argue that interaction designers must adopt a dual strategy toward climate change: continue developing systems that encourage behavioral changes to reduce greenhouse gas emissions (mitigation) while also creating digital tools that help humanity prepare for and adapt to potentially unavoidable climate impacts (adaptation). Drawing on the IPCC's 2007 report and James Lovelock's Gaia hypothesis, they propose eight domains where HCI can contribute: food tracking, environmental dashboards, evacuation planning, habitability indexes, resource conservation interfaces, life-saving social mechanisms, public support for geoengineering solutions, and energy literacy tools. The paper positions interaction design as both a science and 'an art of compassion' with humanitarian responsibilities in the face of climate crisis. This is a foundational piece in sustainable HCI that establishes the 'hope for the best, prepare for the worst' framing later adopted by collapse informatics.",
+      "summary": {
+        "documentOverview": "Eli Blevis is Associate Professor of Informatics at Indiana University, known for foundational work on sustainable interaction design. Shunying Blevis is an independent scholar with expertise in design, locavorism, and permaculture. This 2010 forum article in interactions magazine (ACM) represents an early call for HCI to address climate adaptation alongside mitigation.",
+        "researchOverview": "The central question: How should interaction designers respond to the possibility that we will reach a climate tipping point? The authors frame this through 'hoping for the best and preparing for the worst'—a strategic approach acknowledging uncertainty while demanding action. They synthesize IPCC reports, Lovelock's Gaia hypothesis, and emerging sustainable HCI literature.",
+        "theoriesOfKnowledge": "The Gaia hypothesis positions Earth as a 'living self-regulating system.' Connectionism from cognitive science provides a model for emergent behaviors from autonomous agents. Tony Fry's distinction between sustainability and sustainment emphasizes lifestyle changes over emission reductions alone. Design problem-setting over problem-solving frames the methodological approach.",
+        "centralArguments": "Interaction designers must pursue a dual strategy: reducing emissions through behavioral change AND developing systems for climate adaptation. 'Interaction design is a science, and an art, of compassion and that saving lives above all else and incorporating sustainability whenever possible is a suitable and critical goal for our discipline.' The authors reject resignation to catastrophic predictions.",
+        "evidence": "The 2007 IPCC report provides evidence for climate urgency and specific impacts on food, water, and ecosystems. Lovelock's predictions about tipping points. Existing sustainable HCI projects (StepGreen, SAP carbon dashboards). A logical framework matrix mapping strategies against climate outcomes. Limitation: conceptual rather than empirical—does not test whether design interventions work.",
+        "conclusion": "This paper establishes the dual mitigation-adaptation framing that influenced collapse informatics. Eight specific domains for intervention provide concrete directions. The 'art of compassion' framing positions design as humanitarian practice. Remember: the tipping point concept means some climate change is unavoidable regardless of mitigation success."
+      },
+      "discussionQuestions": [
+        "The authors wrote in 2010 that we might reach a tipping point by 2040. How should we update this framing given more recent climate science?",
+        "Can interaction design really be 'an art of compassion'? What would this mean for design education and practice?",
+        "The paper proposes 'dashboard earth' monitoring systems. How might AI change what such systems could accomplish?",
+        "Is the 'hope for the best, prepare for the worst' framing psychologically effective for motivating action, or does it risk fatalism?"
+      ],
+      "crossReferences": ["tomlinson-2012-collapse-chi", "tomlinson-2013-collapse", "nardi-2018-limits"]
+    },
+    {
+      "id": "nardi-2018-limits",
+      "citation": {
+        "authors": ["Nardi, B.", "Tomlinson, B.", "Patterson, D. J.", "Chen, J.", "Pargman, D.", "Raghavan, B.", "Penzenstadler, B."],
+        "year": 2018,
+        "title": "Computing within Limits",
+        "venue": "Communications of the ACM",
+        "volume": "61",
+        "issue": "10",
+        "pages": "86–93",
+        "doi": "10.1145/3183582"
+      },
+      "themes": ["design-futures", "physical-grounding", "measurement-boundaries"],
+      "methods": ["review", "theoretical"],
+      "summaryFile": "papers/Nardi-et-al-2018-computing-within-limits-summary.md",
+      "annotation": "Nardi, Tomlinson, and colleagues propose a paradigm shift in computing research called 'Computing within Limits' (LIMITS). They argue that most computing research implicitly assumes perpetual economic and technological growth, which is at odds with scientific evidence showing humanity is approaching or has exceeded planetary ecological boundaries. Drawing on ecological economics (Herman Daly's steady-state economy), collapse theory (Joseph Tainter), and related computing fields (Sustainable HCI, Crisis Informatics, ICTD), they call for computing researchers to: (1) question growth assumptions in their work, (2) consider models of scarcity rather than assuming technological fixes, and (3) design systems that reduce energy and material consumption. Published in the flagship ACM journal, this article establishes LIMITS as a legitimate research agenda for computing in an era of environmental constraints.",
+      "summary": {
+        "documentOverview": "Seven authors from institutions across the US, Sweden, and UAE represent the founding LIMITS research community. Bonnie Nardi (UC Irvine), Bill Tomlinson (UC Irvine/Victoria), Donald Patterson (Westmont), Jay Chen (NYU Abu Dhabi), Daniel Pargman (KTH Stockholm), Barath Raghavan (USC), and Birgit Penzenstadler (CSU Long Beach). This 2018 Communications of the ACM review article synthesizes the LIMITS research agenda.",
+        "researchOverview": "The central question: What should computing research look like if we take seriously planetary-scale ecological limits? LIMITS 'integrates three topics: current and near-future ecological, material, and energy limits; the ways new forms of computing may help support wellbeing while living within these limits; and the impact these limits are likely to have on the field of computing.' LIMITS sees ecological issues as a 'predicament' requiring new assumptions rather than solutions.",
+        "theoriesOfKnowledge": "Herman Daly's steady-state economics argues growth eventually decreases wellbeing. Tainter's collapse theory shows civilizations collapse from unsustainable complexity. Planetary boundaries framework (Rockstrom) identifies limits that must not be transgressed. Sustainable HCI (Blevis) provides design rubrics. Key terms: 'predicament,' 'cornucopian paradigm,' 'Jevons paradox,' 'disintermediation.'",
+        "centralArguments": "Computing research is fundamentally misdirected by implicit growth assumptions. 'Most computing work is premised on industrial civilization's default worldview in which ongoing economic growth is both achievable and desirable. This growth-focused worldview, however, is at odds with findings from many other scientific fields.' LIMITS proposes shifting from productivity to long-term wellbeing.",
+        "evidence": "Ecological evidence: overfishing, deforestation, soil depletion, falling water tables, rising temperatures, CO2 emissions exceeding safe levels. Economic evidence: despite unprecedented prosperity, global inequality increases. Archaeological evidence from Tainter on collapse patterns. LIMITS workshops (2015-2017) with international participation. Limitation: review/position article rather than empirical study.",
+        "conclusion": "Computing must undergo a paradigm shift from growth to limits. The 'cornucopian paradigm' of ever-expanding capacity is unsustainable. Jevons paradox means efficiency gains may increase rather than decrease consumption. LIMITS proposes computing research that questions growth, considers scarcity, and reduces material throughput. Remember: this is a predicament requiring new assumptions, not a problem with clear solutions."
+      },
+      "discussionQuestions": [
+        "The 'cornucopian paradigm' assumes perpetual growth. How does AI development either challenge or reinforce this paradigm?",
+        "Jevons paradox suggests efficiency gains increase consumption. How might this apply to AI systems that make tasks 'cheaper' to accomplish?",
+        "The authors propose shifting from 'productivity' to 'wellbeing.' What would this mean for how we evaluate computing research?",
+        "LIMITS research has been ongoing since 2015. What impact has it had on mainstream computing research?"
+      ],
+      "crossReferences": ["tomlinson-2013-collapse", "tomlinson-2012-collapse-chi", "blevis-2010-tipping-point", "ostrom-2010-polycentric"]
+    },
+    {
+      "id": "ostrom-2010-polycentric",
+      "citation": {
+        "authors": ["Ostrom, E."],
+        "year": 2010,
+        "title": "Polycentric Systems for Coping with Collective Action and Global Environmental Change",
+        "venue": "Global Environmental Change",
+        "volume": "20",
+        "issue": "4",
+        "pages": "550–557",
+        "doi": "10.1016/j.gloenvcha.2010.07.004"
+      },
+      "themes": ["design-futures", "measurement-boundaries"],
+      "methods": ["theoretical", "review"],
+      "summaryFile": "papers/Ostrom-2010-Polycentric-Systems-Climate-Change-Summary.md",
+      "annotation": "Nobel laureate Elinor Ostrom challenges the conventional wisdom that climate change can only be addressed through a single, binding global treaty. Drawing on her extensive research on commons governance and collective action, Ostrom argues that 'polycentric' governance systems—featuring multiple, overlapping decision-making centers at local, regional, national, and international scales—are more effective than monocentric global solutions. She provides empirical evidence that small-to-medium scale groups frequently solve collective action problems through trust, reciprocity, and face-to-face communication, and documents extensive climate action already occurring at subnational levels (U.S. cities and states, European emissions trading, local efficiency programs). While acknowledging problems like leakage, policy inconsistency, and free riding, Ostrom argues polycentric systems have superior mechanisms for experimentation, learning, and adaptation. This article has become foundational in climate governance scholarship and influenced the more decentralized approach embodied in the Paris Agreement.",
+      "summary": {
+        "documentOverview": "Elinor Ostrom (1933-2012) was awarded the Nobel Prize in Economic Sciences in 2009 for her analysis of economic governance, especially the commons. Affiliated with Indiana University's Workshop in Political Theory and Policy Analysis and Arizona State University's Center for the Study of Institutional Diversity, her work challenged conventional assumptions about the 'tragedy of the commons.' This 2010 article in Global Environmental Change applies her life's work to climate change governance.",
+        "researchOverview": "The central question: Does conventional collective action theory provide the best framework for climate change, or would a polycentric approach improve analysis? Ostrom asks whether actions at less than global scales can cumulatively reduce climate threats. Methodology combines theoretical synthesis with empirical evidence from case studies, meta-analyses, field studies, experiments, and agent-based models.",
+        "theoriesOfKnowledge": "Conventional collective action theory predicts that without external regulation, no one will reduce emissions. Ostrom's behavioral theory of human action assumes bounded rationality, learning, and variation in other-regarding preferences. Polycentric governance theory emphasizes multiple overlapping decision centers at different scales. Key terms: 'polycentric,' 'leakage,' 'gaming the system,' 'inadequate certification.'",
+        "centralArguments": "Instead of focusing only on global treaties, 'it is better to encourage polycentric efforts to reduce the risks associated with the emission of greenhouse gases. Polycentric approaches facilitate achieving benefits at multiple scales as well as experimentation and learning.' Trust and reciprocity are essential—smaller units enable face-to-face discussion. No governance system is perfect, but polycentric systems enable learning and adaptation.",
+        "evidence": "Metropolitan governance studies: water industry in California, police services—'most efficient producers supply more output in high multiplicity metropolitan areas.' Climate initiatives: 1026 U.S. mayors joined climate agreements, California's Global Warming Solutions Act, Regional Greenhouse Gas Initiative. EU Emissions Trading achieved 2% CO2 cut by 2005. Household studies: 32% electricity reduction with feedback and incentives. Limitation: primarily theoretical synthesis.",
+        "conclusion": "Polycentric governance offers advantages over monocentric global approaches for climate change. Benefits occur at multiple scales, not just globally. Trust and reciprocity require human-scale interactions. Experimentation and learning enable adaptation over time. This influenced the Paris Agreement's bottom-up structure. Remember: polycentricity means multiple centers, not chaos—units coordinate through competition, contracts, and conflict resolution mechanisms."
+      },
+      "discussionQuestions": [
+        "Ostrom argues polycentric governance enables experimentation and learning. How might this apply to AI governance?",
+        "The paper was written before the Paris Agreement. How well does the Paris Agreement's structure reflect Ostrom's recommendations?",
+        "Ostrom emphasizes trust and face-to-face communication. What are the implications for digital platforms attempting to coordinate collective action?",
+        "How might polycentric governance principles apply to computing within limits—could there be 'polycentric' approaches to sustainable computing?"
+      ],
+      "crossReferences": ["nardi-2018-limits", "tomlinson-2013-collapse"]
+    },
+    {
+      "id": "besana-2024-sid-review",
+      "citation": {
+        "authors": ["Besana, N.", "Krogh, P. G.", "Petersen, M. G.", "Spallazzo, D."],
+        "year": 2024,
+        "title": "Expanding the Concept of Sustainable Interaction Design: A Systematic Literature Review",
+        "venue": "Sustainability",
+        "volume": "16",
+        "issue": "17",
+        "pages": "7486",
+        "doi": "10.3390/su16177486"
+      },
+      "themes": ["design-futures", "measurement-boundaries"],
+      "methods": ["review"],
+      "summaryFile": "papers/besana-2024-sustainable-interaction-design-summary.md",
+      "annotation": "Besana and colleagues conduct a systematic literature review examining how Sustainable Interaction Design (SID) has evolved since Eli Blevis introduced it in 2007. Analyzing 185 publications using the PRISMA methodology, they find that SID research overwhelmingly focuses on environmental sustainability (179 papers) while neglecting social (40 papers) and economic (8 papers) dimensions. They propose expanding the original two-strand framework ('sustainability in design' and 'sustainability through design') to a three-strand framework by adding 'sustainability in designing' to capture emerging research on making design processes themselves sustainable. The paper identifies nine recurring/emerging themes including eco-feedback, behavioral change, persuasive technologies, collapse informatics, and design for attachment. This comprehensive review maps the current state of sustainable HCI and identifies gaps that future research should address.",
+      "summary": {
+        "documentOverview": "Four researchers from Politecnico di Milano (Italy) and Aarhus University (Denmark): Nicola Besana, Peter Gall Krogh, Marianne Graves Petersen, and Davide Spallazzo. This 2024 systematic literature review in Sustainability (MDPI) follows PRISMA methodology to analyze 185 publications on Sustainable Interaction Design from 2000-2023.",
+        "researchOverview": "The objective is to systematically analyze how 'Sustainable Interaction Design' is conceptualized in scholarly discourse. The search used Scopus and Web of Science, yielding 469 results reduced to 185 after screening. Publications were coded using MaxQda through three lenses: framing of sustainability, role of design, and recurrent/emerging topics.",
+        "theoriesOfKnowledge": "Blevis's 2007 SID framework: 'the act of making or informing choices about future ways of being, using sustainability as a lens.' Mankoff and Blevis's two-strand framework: 'sustainability in design' and 'sustainability through design.' Brundtland Report's tripartite classification (environmental, social, economic). DiSalvo's quadruple bottom line (personal, social, environmental, economic).",
+        "centralArguments": "SID has evolved beyond Blevis's bipartite framework and now requires tripartite conceptualization: sustainability BY design (inherent feature), THROUGH design (instruments for behavior), and IN designing (sustainable processes). Research disproportionately emphasizes environmental over social and economic dimensions. The field shows 'maturity' but significant gaps remain.",
+        "evidence": "Quantitative analysis: 179 papers address environmental concerns, only 40 social, only 8 economic. Nine recurring themes identified: eco-feedback, behavioral change, persuasive technologies, collapse informatics, sufficiency-based design, more-than-human design, social sustainability, design for attachment, and design methods. Funding from AUFF grant and Erasmus+ curriculum development grant. Limitation: English-language publications only.",
+        "conclusion": "SID research has matured but remains environmentally biased. The proposed three-strand framework captures how sustainability can be: an inherent product feature (by design), a behavioral outcome (through design), or a process quality (in designing). Collapse informatics is recognized as a recurring theme. Remember: only 8 of 185 papers addressed economic sustainability—a critical gap given sustainability's tripartite definition."
+      },
+      "discussionQuestions": [
+        "Why might economic sustainability be so neglected in SID research? What would economically sustainable interaction design look like?",
+        "The authors propose 'sustainability in designing' as a third strand. How might AI tools affect the sustainability of design processes themselves?",
+        "Collapse informatics appears as one of nine themes. How has it influenced mainstream SID research?",
+        "The review finds social sustainability understudied. What would socially sustainable interaction design prioritize?"
+      ],
+      "crossReferences": ["krogh-koskinen-2020-epistemic", "tomlinson-2013-collapse", "blevis-2010-tipping-point"]
     }
   ]
 }
