@@ -8,6 +8,26 @@
   },
   "glossary": [
     {
+      "term": "Epistemic Tradition",
+      "definition": "A framework of knowledge production with its own standards for what counts as valid knowledge and appropriate evaluation criteria. In design research, different epistemic traditions (experiential, methodic, programmatic, dialectic) shape how contributions are judged.",
+      "papers": ["krogh-koskinen-2020-epistemic"]
+    },
+    {
+      "term": "Probing",
+      "definition": "An evaluation method in the experiential epistemic tradition where a design researcher collects subjective opinions about designed objects, cherishing that people form their own independent opinions rather than matching the designer's intent.",
+      "papers": ["krogh-koskinen-2020-epistemic"]
+    },
+    {
+      "term": "Performative Objects",
+      "definition": "Designed artifacts that prompt an experience of mindfulness through disruption of function. Unlike ordinary objects, performative objects draw attention to the act of use itself and evoke reflection on normally taken-for-granted behaviors.",
+      "papers": ["krogh-koskinen-2020-epistemic"]
+    },
+    {
+      "term": "Constructive Design Research",
+      "definition": "Research that produces knowledge through the act of designing and making artifacts, where the designed object itself serves as a vehicle for inquiry. Distinct from research about design or research for design.",
+      "papers": ["krogh-koskinen-2020-epistemic"]
+    },
+    {
       "term": "Collapse Informatics",
       "definition": "The study, design, and development of sociotechnical systems in the abundant present for use in a future of scarcity. The core challenge involves designing systems in our current context even though their primary usage will occur in a very different future situation.",
       "papers": ["tomlinson-2013-collapse"]
@@ -109,7 +129,38 @@
         "How do we balance designing for collapse (which some might see as defeatist) with efforts to prevent collapse through sustainability initiatives? Are these goals in tension?",
         "What would a 'tertiary artifact' or 'possible-worlds artifact' look like in today's AI ecosystem? How might generative AI tools help or hinder people's ability to imagine alternative futures?"
       ],
-      "crossReferences": []
+      "crossReferences": ["krogh-koskinen-2020-epistemic"]
+    },
+    {
+      "id": "krogh-koskinen-2020-epistemic",
+      "citation": {
+        "authors": ["Krogh, P. G.", "Koskinen, I."],
+        "year": 2020,
+        "title": "Four Epistemic Traditions of Evaluation",
+        "venue": "Drifting by Intention: Four Epistemic Traditions of Evaluation",
+        "publisher": "Springer",
+        "pages": "73–82",
+        "doi": "10.1007/978-3-030-37896-7_6"
+      },
+      "themes": ["design-futures"],
+      "methods": ["theoretical", "design"],
+      "summaryFile": "papers/krogh-koskinen-2020-epistemic-summary.md",
+      "annotation": "Krogh and Koskinen, design research methodologists from Denmark and Finland, argue that evaluation in constructive design research takes different forms depending on the underlying epistemological tradition. They identify four traditions: experiential (evaluation through probing subjective responses), methodic (controlled experiments and accumulative methods), programmatic (comparison to discourse and previous research), and dialectic (community response and engagement). Drawing on doctoral dissertations including Summatavet's jewelry exhibitions and von Busch's fashion hacktivism, they demonstrate that design research has developed mature evaluation practices suited to different knowledge production goals. The chapter is useful for research on AI and sustainability because it provides a framework for understanding how speculative and futures-oriented design work can be legitimately evaluated. Rather than importing scientific validity criteria wholesale, researchers can position themselves within an epistemic tradition and evaluate accordingly. The intended audience is design researchers, HCI scholars, and those working at the intersection of design and knowledge production.",
+      "summary": {
+        "documentOverview": "Peter Gall Krogh and Ilpo Koskinen are design research methodologists who have written extensively about how design produces knowledge. This chapter from their book Drifting by Intention (Springer, 2020) maps the landscape of evaluation practices in constructive design research, addressing the fundamental challenge of judging whether a theory produced through design is useful, valuable, or successful.",
+        "researchOverview": "The central research question: On what grounds do we judge whether a theory for design is useful, valuable, or successful? The authors analyze existing design research dissertations and projects to build a typology of evaluation practices. Their claim is that 'evaluation takes different forms depending on the underlying epistemological tradition' (p. 73), meaning the yardstick for measuring contributions varies between traditions.",
+        "theoriesOfKnowledge": "Four epistemic traditions emerge: In the experiential tradition, knowledge comes from subjective encounters with designed objects through 'probing' methods. The methodic tradition treats design as science using 'accumulative' methods where 'the understanding of every outcome is gained only by falling back into the center' (p. 76) of fixed criteria. In the programmatic tradition, following Zimmerman, 'evaluation can be done against the discourse behind research projects' (p. 77). In the dialectic tradition, 'the community is the anchor' (p. 79).",
+        "centralArguments": "The central argument is that constructive design research has developed mature evaluation practices that only make sense within their respective epistemic traditions. The authors state: 'contributions in constructive design research is a matter of to whom and what the research is held accountable to' (p. 80). Diversity in evaluation is a strength, not a weakness: 'this diversity can also be seen as a sign of maturity' (p. 73). Researchers can strategically position themselves by 'knowing their preferred epistemic tradition' (p. 81).",
+        "evidence": "The authors analyze doctoral dissertations across traditions. Summatavet's Folk Tradition and Artistic Inspiration (2005) had 'design objects exquisitely crafted' and 'juried by professional goldsmiths' (p. 74). Von Busch's FASHION-able (2008) explored hacktivism including 'a failed attempt to redesign a Turkish fashion firm' (p. 74). Ross's lamp design used controlled experiments, 'deliberately chose neutral colors, material and a static shape' (p. 76). Dindler's museum installations evaluated through community engagement. Limitation: primarily European design research examples.",
+        "conclusion": "Design research does not lack evaluation standards; it has multiple legitimate traditions serving different knowledge production goals. Researchers should be explicit about epistemic commitments and evaluate accordingly. For sustainability research, this means collapse informatics could be evaluated through experiential criteria (does the artifact provoke reflection?), methodic criteria (does the system perform under constraints?), programmatic criteria (does it advance discourse?), or dialectic criteria (does community adopt it?). Remember: evaluation in design research is epistemically plural."
+      },
+      "discussionQuestions": [
+        "The authors argue evaluation should match epistemic tradition. But what happens when a design research project genuinely spans multiple traditions?",
+        "The dialectic tradition evaluates design by community response. How might this apply to sustainability computing, where the relevant 'community' might be future generations?",
+        "Von Busch's dissertation included a 'failed attempt.' Under what conditions should failure count as valid research contribution?",
+        "The authors suggest researchers should choose evaluation approaches that 'anticipate the expectations of their audience.' Is this pragmatic wisdom or strategic game-playing?"
+      ],
+      "crossReferences": ["tomlinson-2013-collapse"]
     }
   ]
 }
