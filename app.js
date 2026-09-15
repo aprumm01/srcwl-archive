@@ -157,7 +157,7 @@
     return citation;
   }
 
-  // Render paper card with expandable annotation and citation
+  // Render paper card with expandable annotation (includes citation)
   function renderPaperCard(paper) {
     const themeTags = paper.themes.map(t =>
       `<span class="tag theme" data-theme="${t}">${getThemeName(t)}</span>`
@@ -173,12 +173,6 @@
           </div>
         </div>
         <div class="paper-actions-row">
-          <button class="citation-toggle" aria-expanded="false">
-            <span>Citation</span>
-            <svg class="toggle-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M3 4.5L6 7.5L9 4.5"/>
-            </svg>
-          </button>
           <button class="annotation-toggle" aria-expanded="false">
             <span>Annotation</span>
             <svg class="toggle-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -187,10 +181,8 @@
           </button>
           <button class="paper-detail-btn">Full summary →</button>
         </div>
-        <div class="paper-citation-body expandable-body">
-          <p class="paper-citation-text">${formatCitation(paper)}</p>
-        </div>
         <div class="paper-annotation-body expandable-body">
+          <p class="paper-citation-text">${formatCitation(paper)}</p>
           <p class="paper-annotation-text">${paper.annotation}</p>
         </div>
       </article>
@@ -422,15 +414,6 @@
 
     // Paper card clicks
     document.getElementById('paper-list').addEventListener('click', (e) => {
-      // Citation toggle
-      const citationToggle = e.target.closest('.citation-toggle');
-      if (citationToggle) {
-        e.stopPropagation();
-        const card = citationToggle.closest('.paper-card');
-        toggleExpandable(card, 'citation');
-        return;
-      }
-
       // Annotation toggle
       const annotationToggle = e.target.closest('.annotation-toggle');
       if (annotationToggle) {
