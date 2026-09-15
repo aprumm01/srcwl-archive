@@ -197,7 +197,7 @@
     `;
   }
 
-  // Render drawer content for a paper (summary only, annotation/citation on main page)
+  // Render drawer content for a paper (study-partner summary)
   function renderDrawerContent(paper) {
     const themeTags = paper.themes.map(t =>
       `<span class="tag theme" data-theme="${t}">${getThemeName(t)}</span>`
@@ -213,9 +213,10 @@
         ).join('')
       : '<span style="color: var(--text-muted); font-size: 0.8125rem;">None specified</span>';
 
-    const findings = paper.summary.keyFindings.map(f => `<li>${f}</li>`).join('');
-
     const questions = paper.discussionQuestions.map(q => `<li>${q}</li>`).join('');
+
+    // Use study-partner format summary
+    const s = paper.summary;
 
     return `
       <h2 class="drawer-title">${paper.citation.title}</h2>
@@ -233,12 +234,33 @@
       </div>
 
       <div class="drawer-section">
-        <p class="drawer-section-title">Summary</p>
-        <p class="drawer-overview">${paper.summary.overview}</p>
-        <ul class="drawer-findings">
-          ${findings}
-        </ul>
-        <p class="drawer-argument">${paper.summary.centralArgument}</p>
+        <p class="drawer-section-title">Overview of the Document</p>
+        <p class="drawer-text">${s.documentOverview}</p>
+      </div>
+
+      <div class="drawer-section">
+        <p class="drawer-section-title">Research Overview</p>
+        <p class="drawer-text">${s.researchOverview}</p>
+      </div>
+
+      <div class="drawer-section">
+        <p class="drawer-section-title">Theories of Knowledge</p>
+        <p class="drawer-text">${s.theoriesOfKnowledge}</p>
+      </div>
+
+      <div class="drawer-section">
+        <p class="drawer-section-title">Central Arguments</p>
+        <p class="drawer-text">${s.centralArguments}</p>
+      </div>
+
+      <div class="drawer-section">
+        <p class="drawer-section-title">Evidence</p>
+        <p class="drawer-text">${s.evidence}</p>
+      </div>
+
+      <div class="drawer-section">
+        <p class="drawer-section-title">Conclusion</p>
+        <p class="drawer-text">${s.conclusion}</p>
       </div>
 
       <div class="drawer-section">
