@@ -107,12 +107,12 @@ body.drawer-open {
 
 /* Layout */
 .container {
-  max-width: 720px;
+  max-width: 960px;
   margin: 0 auto;
-  padding: var(--space-3xl) var(--space-lg);
+  padding: var(--space-3xl) var(--space-xl);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .container {
     padding: var(--space-xl) var(--space-md);
   }
@@ -215,6 +215,7 @@ body.drawer-open {
 /* Paper header */
 .paper-header {
   padding: var(--space-lg);
+  padding-bottom: var(--space-sm);
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
@@ -240,11 +241,28 @@ body.drawer-open {
   line-height: 1.4;
 }
 
+/* Tags and actions row - horizontal layout */
+.paper-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg) var(--space-lg);
+}
+
 .paper-tags {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-xs);
-  margin-top: var(--space-sm);
+  flex: 1;
+  min-width: 0;
+}
+
+.paper-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-left: auto;
 }
 
 .tag {
@@ -289,14 +307,7 @@ body.drawer-open {
   border-color: var(--border-subtle);
 }
 
-/* Actions row */
-.paper-actions-row {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding: 0 var(--space-lg) var(--space-lg);
-}
-
+/* Action buttons */
 .annotation-toggle {
   display: inline-flex;
   align-items: center;
@@ -304,9 +315,9 @@ body.drawer-open {
   font-family: var(--font-sans);
   font-size: 0.75rem;
   font-weight: 500;
-  color: var(--text-secondary);
-  background: transparent;
-  border: 1px solid var(--border);
+  color: var(--link);
+  background: rgba(167, 196, 232, 0.1);
+  border: 1px solid var(--link);
   border-radius: 100px;
   padding: 6px 12px;
   cursor: pointer;
@@ -314,20 +325,19 @@ body.drawer-open {
 }
 
 .annotation-toggle:hover {
-  background: var(--surface-elevated);
-  border-color: var(--text-muted);
-  color: var(--text);
+  background: rgba(167, 196, 232, 0.2);
+  color: var(--link-hover);
 }
 
 .toggle-icon {
   transition: transform var(--transition);
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 .paper-card.annotation-expanded .annotation-toggle {
-  background: var(--accent-muted);
-  border-color: var(--accent);
-  color: var(--accent);
+  background: var(--link);
+  border-color: var(--link);
+  color: var(--bg);
 }
 
 .paper-card.annotation-expanded .annotation-toggle .toggle-icon {
@@ -348,7 +358,6 @@ body.drawer-open {
   border-radius: 100px;
   padding: 6px 14px;
   cursor: pointer;
-  margin-left: auto;
   transition: all var(--transition);
 }
 

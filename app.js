@@ -130,18 +130,20 @@
         <div class="paper-header" tabindex="0" role="button">
           <h3 class="paper-title">${paper.citation.title}</h3>
           <p class="paper-citation-short">${formatShortCitation(paper)}</p>
+        </div>
+        <div class="paper-controls">
           <div class="paper-tags">
             ${themeTags}
           </div>
-        </div>
-        <div class="paper-actions-row">
-          <button class="annotation-toggle" aria-expanded="false">
-            <span>Annotation</span>
-            <svg class="toggle-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M3 4.5L6 7.5L9 4.5"/>
-            </svg>
-          </button>
-          <button class="paper-detail-btn">Full summary →</button>
+          <div class="paper-actions">
+            <button class="annotation-toggle" aria-expanded="false">
+              <span>Annotation</span>
+              <svg class="toggle-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 4.5L6 7.5L9 4.5"/>
+              </svg>
+            </button>
+            <button class="paper-detail-btn">Full summary →</button>
+          </div>
         </div>
         <div class="paper-annotation-body expandable-body">
           <p class="paper-citation-text">${formatCitation(paper)}</p>
