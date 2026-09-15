@@ -122,8 +122,8 @@ body.drawer-open {
    Header
    ---------------------------------------- */
 .header {
-  margin-bottom: var(--space-3xl);
-  padding-bottom: var(--space-2xl);
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-lg);
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -133,7 +133,7 @@ body.drawer-open {
   font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 1.1;
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-xs);
   color: var(--text);
 }
 
@@ -143,14 +143,14 @@ body.drawer-open {
   font-weight: 400;
   font-style: italic;
   color: var(--accent);
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-md);
 }
 
 .description {
   font-size: 0.9375rem;
   color: var(--text-secondary);
   line-height: 1.7;
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-md);
   max-width: 60ch;
 }
 
@@ -179,13 +179,13 @@ body.drawer-open {
    Papers
    ---------------------------------------- */
 .papers {
-  margin-bottom: var(--space-3xl);
+  margin-bottom: var(--space-2xl);
 }
 
 .paper-list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
+  gap: var(--space-sm);
 }
 
 /* Paper card */
@@ -214,11 +214,11 @@ body.drawer-open {
 
 /* Paper header */
 .paper-header {
-  padding: var(--space-lg);
-  padding-bottom: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  padding-bottom: var(--space-xs);
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
+  gap: 2px;
 }
 
 .paper-header:focus-visible {
@@ -247,7 +247,7 @@ body.drawer-open {
   align-items: center;
   flex-wrap: wrap;
   gap: var(--space-sm);
-  padding: var(--space-sm) var(--space-lg) var(--space-lg);
+  padding: var(--space-xs) var(--space-lg) var(--space-md);
 }
 
 .paper-tags {
