@@ -318,27 +318,34 @@ body.drawer-open {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-xs) var(--space-sm);
-  margin-top: var(--space-xs);
+  margin-top: var(--space-sm);
 }
 
 .tag {
   font-size: 0.6875rem;
-  color: var(--text-muted);
+  font-weight: 500;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
 }
 
-.tag.theme::before {
-  content: '#';
+.tag.theme {
+  color: var(--text);
+  background: var(--surface-hover);
 }
 
 .tag.method {
   font-style: italic;
+  color: var(--text-muted);
 }
 
 /* Actions row */
 .paper-actions-row {
   display: flex;
   align-items: center;
-  gap: var(--space-md);
+  gap: var(--space-sm);
   padding: 0 var(--space-sm) var(--space-md);
 }
 
@@ -350,21 +357,29 @@ body.drawer-open {
   font-family: var(--font-sans);
   font-size: 0.75rem;
   font-weight: 500;
-  color: var(--text-muted);
-  background: none;
-  border: none;
-  padding: var(--space-xs) 0;
+  color: var(--text-secondary);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-xs) var(--space-sm);
   cursor: pointer;
-  transition: color var(--transition);
+  transition: background var(--transition), border-color var(--transition);
 }
 
 .citation-toggle:hover,
 .annotation-toggle:hover {
-  color: var(--text-secondary);
+  background: var(--surface-hover);
+  border-color: var(--text-muted);
 }
 
 .toggle-icon {
   transition: transform var(--transition);
+}
+
+.paper-card.citation-expanded .citation-toggle,
+.paper-card.annotation-expanded .annotation-toggle {
+  background: var(--surface-hover);
+  border-color: var(--text-muted);
 }
 
 .paper-card.citation-expanded .citation-toggle .toggle-icon,
@@ -373,20 +388,24 @@ body.drawer-open {
 }
 
 .paper-detail-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
   font-family: var(--font-sans);
   font-size: 0.75rem;
   font-weight: 500;
-  color: var(--link);
-  background: none;
+  color: var(--bg);
+  background: var(--text-secondary);
   border: none;
-  padding: var(--space-xs) 0;
+  border-radius: var(--radius);
+  padding: var(--space-xs) var(--space-sm);
   cursor: pointer;
   margin-left: auto;
-  transition: opacity var(--transition);
+  transition: background var(--transition);
 }
 
 .paper-detail-btn:hover {
-  opacity: 0.8;
+  background: var(--text);
 }
 
 /* Expandable bodies */
