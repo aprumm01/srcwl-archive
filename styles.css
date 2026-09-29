@@ -353,17 +353,18 @@ body.drawer-open {
   gap: var(--space-xs);
   font-family: var(--font-sans);
   font-size: 0.75rem;
-  font-weight: 400;
-  color: var(--link);
-  background: none;
+  font-weight: 500;
+  color: var(--bg);
+  background: var(--accent);
   border: none;
-  padding: 0;
+  border-radius: var(--radius);
+  padding: 6px 12px;
   cursor: pointer;
-  transition: color var(--transition);
+  transition: all var(--transition);
 }
 
 .paper-detail-btn:hover {
-  color: var(--link-hover);
+  background: var(--accent-hover);
 }
 
 /* Expandable bodies */
