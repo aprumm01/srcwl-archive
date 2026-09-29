@@ -4,7 +4,7 @@
     "subtitle": "Sustainability, Resilience, and Computing within Limits",
     "description": "A curated reading collection for I609, exploring the environmental and social costs of computing, AI, and data infrastructure.",
     "researchTopic": "AI and sustainability, specifically data storage and the idea of disposable ideations, focused mostly on design, but also product development and software building.",
-    "lastUpdated": "2024-09-14"
+    "lastUpdated": "2026-09-29"
   },
   "glossary": [
     {
@@ -56,6 +56,51 @@
       "term": "Performative Objects",
       "definition": "Designed artifacts that prompt an experience of mindfulness through disruption of function. Unlike ordinary objects, performative objects draw attention to the act of use itself and evoke reflection on normally taken-for-granted behaviors.",
       "papers": ["krogh-koskinen-2020-epistemic"]
+    },
+    {
+      "term": "Doing Responsibilities",
+      "definition": "A reconceptualization of responsibility as a performative, relational activity continuously produced within hybrid assemblages of human and nonhuman actors, rather than a static attribute possessed by individuals. Emphasizes that responsibilities are fluid, unique, multiple, and shared rather than distributed.",
+      "papers": ["fuchsberger-2025-doing-responsibilities"]
+    },
+    {
+      "term": "Agential Realism",
+      "definition": "Karen Barad's theoretical framework arguing that ontological categories are not static but continuously produced through material-discursive 'intra-actions.' Collapses the separation between ontology and epistemology into an 'ethico-onto-epistemological' perspective where ethics runs through the marrow of being.",
+      "papers": ["fuchsberger-2025-doing-responsibilities"]
+    },
+    {
+      "term": "Emergence-Friendly Research",
+      "definition": "Research approaches that treat findings as arising out of ongoing activity, enacted rather than predetermined. Contrasts with intention-bound research where hypotheses, methods, and analyses are committed before data collection. Positions responsiveness and judgment as forms of rigor.",
+      "papers": ["gaver-2022-emergence"]
+    },
+    {
+      "term": "Day Science vs Night Science",
+      "definition": "Distinction from Nobel laureate Françoise Jacob. Day science employs reasoning that 'snaps together like gears' with certainty. Night science is a 'workshop of the possible' where future building materials are made through exploratory, intuitive processes.",
+      "papers": ["gaver-2022-emergence"]
+    },
+    {
+      "term": "Ethical Encounters",
+      "definition": "Practitioner-identified situations that expose tensions and value-laden decisions, emerging from the situated realities of day-to-day design work. Encompasses issues, actions, and capacities that are nested and multidirectionally connected.",
+      "papers": ["oz-2026-ethical-encounters"]
+    },
+    {
+      "term": "Regulatory Modalities",
+      "definition": "Lawrence Lessig's framework identifying four forces that constrain and enable behavior: law, social norms, markets, and architecture (code). In digital environments, code and interface design function as regulatory mechanisms shaping what behaviors are possible.",
+      "papers": ["rossitto-2026-modalities-regulation"]
+    },
+    {
+      "term": "Rebound Effects",
+      "definition": "Negative impacts where efficiency gains or sustainable interventions lead to increased consumption, often by causing increased demand and production. Includes direct effects (more use of same product), indirect effects (savings enable other consumption), and systemic effects (behavioral changes at sociotechnical scale). 'Backfire' describes when negative consequences exceed initial savings entirely.",
+      "papers": ["bornes-2024-systemic-hci", "nardi-2018-limits"]
+    },
+    {
+      "term": "Systemic Sustainable HCI",
+      "definition": "A proposed research direction aimed at building systemic concepts and tools to support sustainable HCI efforts. Integrates systems thinking, system dynamics modeling, and collaborative design methods to help designers identify and mitigate rebound effects.",
+      "papers": ["bornes-2024-systemic-hci"]
+    },
+    {
+      "term": "Responsible Stakeholder Engagement Competences (RSEC)",
+      "definition": "The knowledge, skills, attitudes, and ethical sensitivities required to effectively identify, understand, interact with, and manage relationships with stakeholders in ways that are transparent, inclusive, ethical, and conducive to sustainable outcomes. Comprises three dimensions: Balancing Perspectives, Negotiating Power Relations, and Managing Resources Responsibly.",
+      "papers": ["christensen-2026-stakeholder-engagement"]
     },
     {
       "term": "Constructive Design Research",
@@ -195,7 +240,7 @@
         "Von Busch's dissertation included a 'failed attempt.' Under what conditions should failure count as valid research contribution?",
         "The authors suggest researchers should choose evaluation approaches that 'anticipate the expectations of their audience.' Is this pragmatic wisdom or strategic game-playing?"
       ],
-      "crossReferences": ["tomlinson-2013-collapse"]
+      "crossReferences": ["tomlinson-2013-collapse", "gaver-2022-emergence", "oz-2026-ethical-encounters"]
     },
     {
       "id": "tomlinson-2012-collapse-chi",
@@ -321,7 +366,7 @@
         "Ostrom emphasizes trust and face-to-face communication. What are the implications for digital platforms attempting to coordinate collective action?",
         "How might polycentric governance principles apply to computing within limits—could there be 'polycentric' approaches to sustainable computing?"
       ],
-      "crossReferences": ["nardi-2018-limits", "tomlinson-2013-collapse"]
+      "crossReferences": ["nardi-2018-limits", "tomlinson-2013-collapse", "rossitto-2026-modalities-regulation"]
     },
     {
       "id": "besana-2024-sid-review",
@@ -353,7 +398,191 @@
         "Collapse informatics appears as one of nine themes. How has it influenced mainstream SID research?",
         "The review finds social sustainability understudied. What would socially sustainable interaction design prioritize?"
       ],
-      "crossReferences": ["krogh-koskinen-2020-epistemic", "tomlinson-2013-collapse", "blevis-2010-tipping-point"]
+      "crossReferences": ["krogh-koskinen-2020-epistemic", "tomlinson-2013-collapse", "blevis-2010-tipping-point", "fuchsberger-2025-doing-responsibilities", "bornes-2024-systemic-hci", "christensen-2026-stakeholder-engagement"]
+    },
+    {
+      "id": "fuchsberger-2025-doing-responsibilities",
+      "citation": {
+        "authors": ["Fuchsberger, V.", "Frauenberger, C."],
+        "year": 2025,
+        "title": "Doing Responsibilities in Entangled Worlds",
+        "venue": "Human-Computer Interaction",
+        "volume": "40",
+        "issue": "1-4",
+        "pages": "65-88",
+        "doi": "10.1080/07370024.2023.2269934"
+      },
+      "themes": ["design-futures", "cost-relocation"],
+      "methods": ["theoretical"],
+      "summaryFile": "papers/doing-responsibilities-entangled-worlds-summary.md",
+      "annotation": "Fuchsberger and Frauenberger from the University of Salzburg reconceptualize responsibility in HCI from an individual attribute to a performative, relational activity called 'doing responsibilities.' Drawing on Actor-Network Theory, Karen Barad's agential realism, and postphenomenology, they argue responsibility is continuously produced within hybrid assemblages of human and nonhuman actors rather than distributed among pre-figured entities. The framework traces how responsibilities emerge across the 'milieu of innovation,' design processes, and use/appropriation phases. For sustainability research, this offers a lens for understanding how environmental and social impacts are enacted across technological lifecycles. The authors challenge predominant tech narratives that portray innovation as transcendent and inevitable, arguing for reconfigured assemblages that produce more just futures. Intended audience: HCI researchers, technology ethicists, and scholars working on posthumanist approaches to design.",
+      "summary": {
+        "documentOverview": "Peer-reviewed article from Human-Computer Interaction (Volume 40, 2025) by Verena Fuchsberger and Christopher Frauenberger at University of Salzburg's HCI Division. Both are established posthumanist HCI scholars. The work bridges philosophy, ethics, and HCI to address the 'responsibility gap' emerging when technologies gain agential capacities.",
+        "researchOverview": "Central question: How can we conceptualize responsibility when humans may no longer be the only legitimate sources of moral agency? Theoretical/conceptual methodology drawing on posthumanist theories. Key concept: 'doing responsibilities' emphasizes that responsibilities are 'fluid, unique, and multiple; that they are performed collectively and inseparably among human and nonhuman actors.'",
+        "theoriesOfKnowledge": "Actor-Network Theory (Latour): the social constituted of relations among human and nonhuman actors. Agential realism (Barad): ontological categories continuously produced through 'intra-actions.' Postphenomenology (Ihde, Verbeek): technologies mediate moral frames and shape how we act in the world.",
+        "centralArguments": "Responsibility must be reconceptualized from individual attribute to relational, performative activity within hybrid assemblages. The 'responsibility gap' signals misconfigured assemblages, not missing attribution. Responsibilities are done across temporal phases: milieu of innovation, design, and use/appropriation.",
+        "evidence": "Illustrative examples: Microsoft Tay chatbot, period tracking apps, fitness trackers, predictive policing, ARPANET history. Synthesis of STS research on innovation milieus and Zuboff's surveillance capitalism analysis. Limitation: theoretical framework rather than empirical study.",
+        "conclusion": "Doing responsibilities framework has methodological implications (look beyond human actors), theoretical implications (frame assemblages' potential for change), and designerly implications (configure milieus to produce desired realities). Challenges computing within limits to think beyond efficiency or behavior change toward reconfigured relations."
+      },
+      "discussionQuestions": [
+        "What are the practical implications of understanding responsibility as 'shared' within assemblages rather than 'distributed' among actors for AI accountability mechanisms?",
+        "How might the 'milieu of innovation' concept help computing within limits researchers understand how unsustainable assumptions become embedded before designers make choices?",
+        "Does introducing nonhumans into responsibility frameworks risk making them scapegoats for human irresponsibilities?",
+        "How does the period tracking app example change how we approach privacy by design when legal/political contexts shift unpredictably?"
+      ],
+      "crossReferences": ["krogh-koskinen-2020-epistemic", "besana-2024-sid-review", "oz-2026-ethical-encounters"]
+    },
+    {
+      "id": "gaver-2022-emergence",
+      "citation": {
+        "authors": ["Gaver, W. W.", "Krogh, P. G.", "Boucher, A.", "Chatting, D."],
+        "year": 2022,
+        "title": "Emergence as a Feature of Practice-based Design Research",
+        "venue": "DIS '22: Proceedings of the Designing Interactive Systems Conference",
+        "pages": "517-526",
+        "doi": "10.1145/3532106.3533524"
+      },
+      "themes": ["design-futures"],
+      "methods": ["theoretical", "design"],
+      "summaryFile": "papers/emergence-practice-based-design-research-summary.md",
+      "annotation": "Gaver, Krogh, Boucher, and Chatting from Northumbria, Aarhus, and Goldsmiths argue that practice-based design researchers should openly embrace emergence rather than suppressing it to fit intention-bound research traditions. Drawing on Suchman's situated action theory, ethnomethodology, and Schon's reflective practitioner concept, they contend that the mismatch between how design research is conducted and how it is reported creates problematic tensions. The paper distinguishes 'day science' (systematic hypothesis testing) from 'night science' (exploratory workshops of the possible), arguing design research's value often emerges from the latter. They offer twelve strategies for encouraging, managing, narrating, and assessing emergence. For sustainability research addressing wicked problems, this legitimizes adaptive approaches where methods, questions, and topics evolve through engagement with communities and environments.",
+      "summary": {
+        "documentOverview": "DIS '22 conference paper by William Gaver (Northumbria), Peter Gall Krogh (Aarhus), Andy Boucher (Northumbria), and David Chatting (Goldsmiths). Gaver pioneered cultural probes methodology; Krogh contributed 'ways of drifting' framework. The paper confronts what they call an 'open secret' in design research.",
+        "researchOverview": "Central question: How should practice-based design researchers navigate, report, and evaluate emergent qualities in their work? Reflective essay methodology drawing on collective experience and literature synthesis. Key concept: emergence-friendly research as 'something arising out of ongoing activity, enacted rather than predetermined' (Suchman).",
+        "theoriesOfKnowledge": "Situated action theory (Suchman): activity emerges through embodied interactions, plans orient rather than guide. Ethnomethodology (Garfinkel): social order produced through ongoing activities. Reflective practitioner (Schon): design as 'conversation with materials' where ontologies and designs co-evolve. Performativity theory: research actively constructs social realities.",
+        "centralArguments": "Emergence is inherent to design practice and many design methods actively encourage it. Economic context of academic research facilitates emergence since researchers write their own briefs. Forces inhibiting emergence include assumptions that design must add systematic processes and pressure from technical disciplinary neighbors. Rigor exists in 'attending to clues, seeking radically new perspectives and following untraveled paths.'",
+        "evidence": "Examples from published design research including projects transformed by fortuitous encounters. Krogh's taxonomy of 'ways of drifting' (accumulative, serial, probing). Françoise Jacob's 'day science/night science' distinction. Graphene discovery during 'Saturday Night Experiments.' Limitation: reflective essay without systematic content analysis.",
+        "conclusion": "Emergence and rigor are compatible. Twelve strategies offered for navigating emergence. For sustainability research, this legitimizes adaptive approaches to wicked problems and reframes rigor as responsiveness and judgment rather than plan adherence."
+      },
+      "discussionQuestions": [
+        "How might researchers reconcile the value of emergence with accountability requirements from funders and ethics boards in sustainability research?",
+        "To what extent is embracing emergence a privilege unevenly distributed across career stages, institutions, and global regions?",
+        "When addressing urgent sustainability challenges, what are the limits of open-ended exploration? When should researchers commit to directions at the cost of foreclosing emergent possibilities?",
+        "Does embracing emergence risk marginalizing design-oriented sustainability research within computing disciplines?"
+      ],
+      "crossReferences": ["krogh-koskinen-2020-epistemic", "tomlinson-2013-collapse", "oz-2026-ethical-encounters"]
+    },
+    {
+      "id": "oz-2026-ethical-encounters",
+      "citation": {
+        "authors": ["Oz, G.", "Dindler, C.", "Krogh, P. G.", "Lindberg, S."],
+        "year": 2026,
+        "title": "Ethical Encounters in Design Practice: A Framework Grounded in Practitioner Experience",
+        "venue": "CHI '26: Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems",
+        "pages": "1-16",
+        "doi": "10.1145/3772318.3791435"
+      },
+      "themes": ["design-futures", "measurement-boundaries"],
+      "methods": ["empirical"],
+      "summaryFile": "papers/ethical-encounters-design-practice-summary.md",
+      "annotation": "Oz, Dindler, Krogh, and Lindberg from Aarhus and Stockholm Universities present an empirically grounded framework for ethical encounters in design practice based on 98 accounts from 27 practitioners across Denmark, Italy, and Switzerland. They identify three interconnected dimensions: perceived issues (user advocacy, environmental advocacy, personal values, legal compliance, ways of working, value alignment), actions taken (designing features, dialogue tactics, organizing among colleagues, no-action), and capacities that emerge (new roles, tools, relationships, ethos building). The framework positions ethics not as external constraint but as embedded, generative, and evolving. Environmental advocacy emerged as a distinct category but often negotiated against economic constraints. The inclusion of 'no-action' as legitimate response acknowledges structural constraints on practitioner agency. Relevant for understanding how sustainability values manifest in commercial design contexts.",
+      "summary": {
+        "documentOverview": "CHI '26 full paper by Gizem Oz, Christian Dindler, and Peter Gall Krogh (Aarhus University) and Sharon Lindberg (Stockholm University). Addresses gap between empirical design ethics research and operational frameworks for practitioners.",
+        "researchOverview": "Research questions: What are lived experiences of design ethics in practice? How do practitioners navigate ethical situations? Semi-structured interviews with 27 practitioners yielding 98 ethical encounter accounts. Three-round coding analysis: selective tagging, descriptive coding, analytical coding.",
+        "theoriesOfKnowledge": "In-action ethics (Frauenberger): ethical matters as dynamic, requiring continuous attention. Values levers (Shilton): activities that ignite values conversations. Ethical design complexity (Gray, Chivukula): choreographed arrangements practitioners must navigate. Cultivating ethics (Lindberg): ethics as co-constructed and changing over time.",
+        "centralArguments": "Ethical encounters understood through three nested dimensions: issues, actions, capacities. These are multidirectionally connected without fixed cause-effect relationships. Ethics is generative, building practitioner capacity. Temporal dimension shows different issues/actions/capacities across project phases.",
+        "evidence": "98 firsthand accounts from 27 practitioners. Examples: Carl declining tobacco projects, Theo modifying payment apps, Esther's printed flight app flow demonstration. Environmental advocacy negotiated against economic constraints. Five acknowledged limitations including geographic constraints and retrospective accounts.",
+        "conclusion": "Framework functions as 'vehicle of thought' sensitizing practitioners to ethical dimensions. Reframes ethics from constraint to generative force. Environmental sustainability often compromised against economic constraints, highlighting need for structural support for values-based practice."
+      },
+      "discussionQuestions": [
+        "How should we evaluate the ethics of inaction in design practice? Does including 'no-action' as a category risk normalizing complicity?",
+        "Given climate urgency, is the framework's descriptive approach sufficient, or should practice-oriented ethics research take normative stances about which values should take priority?",
+        "How might the framework need modification for Global South contexts, hardware design, or large tech corporations?",
+        "Does focusing on individual ethical encounters risk obscuring need for collective organizing and structural change?"
+      ],
+      "crossReferences": ["fuchsberger-2025-doing-responsibilities", "gaver-2022-emergence", "rossitto-2026-modalities-regulation"]
+    },
+    {
+      "id": "rossitto-2026-modalities-regulation",
+      "citation": {
+        "authors": ["Rossitto, C.", "Comber, R.", "Poikolainen Rosen, A.", "Bakhshoudeh, F.", "Greenstein, S. J."],
+        "year": 2026,
+        "title": "Modalities of Regulation in Sustainable HCI: Rethinking the Role of Design in Shaping Sustainable Behaviours and Society",
+        "venue": "CHI '26: Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems",
+        "pages": "1-17",
+        "doi": "10.1145/3772318.3791464"
+      },
+      "themes": ["design-futures", "measurement-boundaries", "cost-relocation"],
+      "methods": ["theoretical", "empirical"],
+      "summaryFile": "papers/modalities-regulation-sustainable-hci-summary.md",
+      "annotation": "Rossitto, Comber, Poikolainen Rosen, Bakhshoudeh, and Greenstein from Stockholm University and KTH apply Lawrence Lessig's four modalities of regulation (law, norms, markets, architecture/code) to Sustainable HCI. Through two Swedish case studies—TipTapp (gig-work waste transport platform) and Klimatkollen (corporate emissions tracker)—they demonstrate that design itself is a form of regulation. TipTapp's legal battle with Stockholm Municipality shows how digital innovation can reshape governance; Klimatkollen illustrates how data visualization fills interpretive gaps in EU sustainability reporting directives. The paper argues designers function as regulators whose architectural choices shape what behaviors are possible. Key concepts include 'doing historicism' (using historical context to interpret regulations), 'giving form' (how design structures legal requirements), and 'datafication.' Challenges behavior-change paradigms in favor of systemic, politically-aware sustainability approaches.",
+      "summary": {
+        "documentOverview": "CHI '26 conceptual paper by interdisciplinary team from Stockholm University (Computer Science, Law) and KTH (Media Technology). Notably includes law professor Stanley Greenstein. Responds to SHCI calls for engaging sociopolitical and structural aspects of sustainability.",
+        "researchOverview": "Central question: How can the concept of regulation help develop more ecological accounts of digital technology for sustainable practices? Two Swedish case studies analyzed through Lessig's regulatory modalities framework. Conceptual contribution illustrated by cases rather than generating empirical findings.",
+        "theoriesOfKnowledge": "Lessig's four modalities: law, norms, markets, architecture (code). All modalities are mutually constitutive, not independent. Mediation theory: technology is never neutral, uniquely shapes activities. Hard law vs. soft law distinction. Dourish's ecotopanism and critiques of datafication.",
+        "centralArguments": "Design should be understood as regulation—'code can be considered as the most effective form of regulation.' Regulatory modalities are dynamically and locally entangled in and through technology design. Four analytical dimensions: relations to legal landscapes, reactive/proactive relations, historical relations, political relations.",
+        "evidence": "TipTapp case: gig platform won legal battle using historical interpretation of 1970s waste law; added QR verification after public criticism. Klimatkollen case: non-profit fills gaps in EU CSRD through data standardization and visualization, leveraging market and normative pressure. Limitation: Swedish context, single perspectives.",
+        "conclusion": "Designers are regulators operating within complex sociotechnical systems. Sustainability not achieved through universal solutions but contextually sensitive interventions. Provides analytical vocabulary (doing historicism, giving form, datafication) for examining computing within limits."
+      },
+      "discussionQuestions": [
+        "What are the ethical implications of designers functioning as regulators without legal training or democratic accountability?",
+        "How might regulatory modality dynamics differ in contexts with weaker environmental law or authoritarian governance?",
+        "Could design that weaponizes social norms for sustainability also be misused for less benign purposes?",
+        "When AI systems make environmental compliance decisions, who is the regulator and where does accountability lie?"
+      ],
+      "crossReferences": ["nardi-2018-limits", "oz-2026-ethical-encounters", "bornes-2024-systemic-hci"]
+    },
+    {
+      "id": "christensen-2026-stakeholder-engagement",
+      "citation": {
+        "authors": ["Christensen, B. T.", "Feast, L.", "Arendt, K. M.", "Laursen, L. N.", "Krogh, P. G.", "Gray, C. M.", "Vangkilde, K. T."],
+        "year": 2026,
+        "title": "Responsible Stakeholder Engagement in Design Education: A Global Survey of Design Programs",
+        "venue": "Designing",
+        "volume": "2",
+        "issue": "1-2",
+        "pages": "119-137",
+        "doi": "10.1177/30497671261446383"
+      },
+      "themes": ["design-futures", "measurement-boundaries"],
+      "methods": ["empirical", "survey"],
+      "summaryFile": "papers/responsible-stakeholder-engagement-design-education-summary.md",
+      "annotation": "Christensen and six co-authors (including Colin Gray from IU Luddy School) present the first global empirical survey of how design education programs teach responsible stakeholder engagement. Surveying 167 programs worldwide, they find that teaching focused on inter- and intraorganizational stakeholders (suppliers, partners, internal colleagues) is the strongest predictor of Responsible Stakeholder Engagement Competences (RSEC), while user-centric teaching shows no significant effect due to saturation. Critically, teaching about planetary/sustainability concerns also showed no significant association with RSEC—the authors suggest sustainability courses emphasize technical analysis (LCA, material impacts) rather than stakeholder negotiation skills. RSEC comprises three dimensions: Balancing Perspectives, Negotiating Power Relations, and Managing Resources Responsibly. The study bridges management scholarship (stakeholder theory) with design education, offering curriculum development implications.",
+      "summary": {
+        "documentOverview": "Journal article in Designing (2026) by seven authors from Copenhagen Business School, Hong Kong Polytechnic, Danish Center for Social Science Research, Aalborg University, Aarhus University, Indiana University (Colin Gray), and University of Copenhagen. First global empirical mapping of responsible stakeholder engagement teaching.",
+        "researchOverview": "Research question: What stakeholders do programs focus on, and how does this impact RSEC? Global survey of 167 programs using SEM analysis. RSEC scale (alpha = 0.91) measures three subdimensions. Four stakeholder teaching focus categories assessed.",
+        "theoriesOfKnowledge": "Stakeholder theory (Freeman): organizations as relationships among groups with stakes. Integration thesis: business decisions contain ethical elements, ethical decisions involve business. Primary vs. secondary stakeholders framework. Design scholarship traditions: participatory design, value sensitive design, design justice.",
+        "centralArguments": "Teaching focused on organizational stakeholders most strongly predicts RSEC (beta = 0.42, p < .001). User-centric teaching shows no effect (ceiling effect from saturation). Design for planet teaching not significantly associated with RSEC—suggests disconnect between technical sustainability teaching and relational competencies.",
+        "evidence": "167 programs surveyed globally (83% Global North). SEM with acceptable fit (CFI = 0.898). Teaching Focus means: Users/Clients (3.88), Social Groups (3.39), Planet (3.27), Organizational (2.66). Post-hoc regressions confirm patterns across subdimensions. Ecological validity checked against program webpages.",
+        "conclusion": "Programs must add organizational literacy to help students understand governance, budgets, and power asymmetries. Sustainability curricula may train technical analysis without developing relational competencies for implementing solutions. Three-stage developmental sequence proposed: Balancing Perspectives → Negotiating Power → Managing Resources."
+      },
+      "discussionQuestions": [
+        "Does the finding that organizational stakeholder teaching predicts RSEC suggest design education has overcorrected toward user advocacy at the expense of organizational realism?",
+        "What pedagogical innovations might better integrate planetary boundaries thinking with stakeholder negotiation and trade-off articulation?",
+        "How might findings differ with better Global South representation, and what non-Western frameworks could enrich RSEC?",
+        "Does stakeholder theory's primary/secondary distinction risk reinforcing power asymmetries by positioning communities as secondary to paying clients?"
+      ],
+      "crossReferences": ["oz-2026-ethical-encounters", "besana-2024-sid-review", "gaver-2022-emergence"]
+    },
+    {
+      "id": "bornes-2024-systemic-hci",
+      "citation": {
+        "authors": ["Bornes, L.", "Letondal, C.", "Vingerhoeds, R."],
+        "year": 2024,
+        "title": "Systemic Sustainable HCI: Integrating Collaborative Modeling into a Design Process to Address Rebound Effects",
+        "venue": "DIS '24: Proceedings of the 2024 ACM Designing Interactive Systems Conference",
+        "pages": "3046-3062",
+        "doi": "10.1145/3643834.3661618"
+      },
+      "themes": ["measurement-boundaries", "cost-relocation", "physical-grounding"],
+      "methods": ["empirical", "design"],
+      "summaryFile": "papers/systemic-sustainable-hci-rebound-effects-summary.md",
+      "annotation": "Bornes, Letondal, and Vingerhoeds from Université de Toulouse introduce 'Systemic Sustainable HCI' as a new research direction, developing a collaborative modeling methodology to help designers identify and mitigate rebound effects. Through workshops with 10 professional designers using Vinted (second-hand clothing platform) as case study, they tested influence diagrams combined with system dynamics simulation. The Vinted case reveals counterintuitive rebound effects: increased impulsive purchases (25% of transactions), longer shipping distances, transition toward 'consu-merchant' identities, and decreased charitable donations. Nine of ten participants found quantitative modeling relevant for comparing strategies, though four expressed difficulty with consolidation. The methodology integrates across five design stages (Discovery through Evolution) and draws on Meadows' leverage points framework. Directly addresses SHCI's gap between theoretical systemic calls and practical tools.",
+      "summary": {
+        "documentOverview": "DIS '24 paper by three researchers from Fédération ENAC ISAE-SUPAERO ONERA, Université de Toulouse, France. Positions at intersection of aerospace engineering and human factors. Proposes 'Systemic Sustainable HCI' as new research area bridging systemic thinking and sustainable design.",
+        "researchOverview": "Central question: Can collaborative systemic modeling help designers understand and mitigate rebound effects? Methodology prototype tested in two half-day workshops with 10 professional designers. Vinted case study with documented rebound effects. Miro boards for diagramming, custom Magnitude tool for simulation.",
+        "theoriesOfKnowledge": "Systems thinking: understanding complex problems within larger systems context. System dynamics (Forrester): modeling and simulating complex systems over time. Systemic design: interdisciplinary field at crossroads of systems thinking and design thinking. Meadows' leverage points framework for intervention categorization.",
+        "centralArguments": "Collaborative modeling promises to integrate sustainability into design processes by helping designers identify rebound effects. Influence diagrams align with existing design practices around visualization. Quantitative modeling serves as 'prospective tool enabling reflection through manipulation of potential futures' rather than prediction. SHCI needs concrete tools, not just theoretical frameworks.",
+        "evidence": "Two workshops, 10 designers, nine schematic representations using causal diagrams, six designers generated new ideas post-modeling. Vinted rebound effects documented: 25% impulsive purchases, increased shipping distances, decreased donations. Nine of ten found quantitative aspect relevant; four expressed consolidation difficulty. Limitations: French speakers only, no diverse stakeholders, short timeframe.",
+        "conclusion": "Systemic Sustainable HCI offers concrete methodology for addressing rebound effects. Influence diagrams accessible entry point for designers. Vinted case illustrates how 'sustainable' platforms generate counterintuitive effects. Seven future research directions proposed including policy maker involvement and planetary boundaries integration."
+      },
+      "discussionQuestions": [
+        "How might collaborative modeling dynamics change when diverse stakeholders with conflicting interests participate alongside designers?",
+        "What safeguards might prevent the methodology from being misused for greenwashing through unrealistic models?",
+        "Could there be 'meta-rebound effects' where adopting sustainability methodologies justifies continued growth rather than questioning product existence?",
+        "How should designers determine appropriate temporal and spatial boundaries for systemic models, and what gets lost when boundaries must be drawn?"
+      ],
+      "crossReferences": ["nardi-2018-limits", "rossitto-2026-modalities-regulation", "besana-2024-sid-review"]
     }
   ]
 }
