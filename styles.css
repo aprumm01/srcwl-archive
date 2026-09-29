@@ -241,73 +241,78 @@ body.drawer-open {
   line-height: 1.4;
 }
 
-/* Tags and actions row - horizontal layout */
+/* Tags and actions row - clean horizontal layout */
 .paper-controls {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-  padding: var(--space-xs) var(--space-lg) var(--space-md);
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-lg) var(--space-md);
 }
 
 .paper-tags {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xs);
+  align-items: center;
+  gap: var(--space-sm);
   flex: 1;
   min-width: 0;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.paper-tags::before {
+  content: '';
+  display: none;
 }
 
 .paper-actions {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  margin-left: auto;
+  flex-shrink: 0;
 }
 
+/* Subtle inline theme indicators */
 .tag {
-  font-size: 0.6875rem;
-  font-weight: 500;
-  padding: var(--space-xs) var(--space-sm);
-  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 400;
+  padding: 0;
+  border-radius: 0;
   background: transparent;
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  transition: all var(--transition);
+  border: none;
+  color: var(--text-muted);
+  transition: color var(--transition);
 }
 
-/* Theme-specific tag colors */
+.tag + .tag::before {
+  content: '·';
+  margin-right: var(--space-sm);
+  color: var(--border);
+}
+
+/* Theme-specific colors - subtle text only */
 .tag.theme[data-theme="design-futures"] {
   color: var(--theme-futures);
-  border-color: var(--theme-futures);
-  background: rgba(212, 167, 232, 0.1);
 }
 
 .tag.theme[data-theme="physical-grounding"] {
   color: var(--theme-grounding);
-  border-color: var(--theme-grounding);
-  background: rgba(167, 196, 232, 0.1);
 }
 
 .tag.theme[data-theme="measurement-boundaries"] {
   color: var(--theme-boundaries);
-  border-color: var(--theme-boundaries);
-  background: rgba(232, 184, 125, 0.1);
 }
 
 .tag.theme[data-theme="cost-relocation"] {
   color: var(--theme-relocation);
-  border-color: var(--theme-relocation);
-  background: rgba(125, 211, 167, 0.1);
 }
 
 .tag.method {
   font-style: italic;
   color: var(--text-muted);
-  border-color: var(--border-subtle);
 }
 
-/* Action buttons */
+/* Action buttons - subtle, text-style */
 .annotation-toggle {
   display: inline-flex;
   align-items: center;
@@ -315,29 +320,25 @@ body.drawer-open {
   font-family: var(--font-sans);
   font-size: 0.75rem;
   font-weight: 500;
-  color: var(--link);
-  background: rgba(167, 196, 232, 0.1);
-  border: 1px solid var(--link);
-  border-radius: 100px;
-  padding: 6px 12px;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  padding: 4px 0;
   cursor: pointer;
-  transition: all var(--transition);
+  transition: color var(--transition);
 }
 
 .annotation-toggle:hover {
-  background: rgba(167, 196, 232, 0.2);
-  color: var(--link-hover);
+  color: var(--text-secondary);
 }
 
 .toggle-icon {
   transition: transform var(--transition);
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
 .paper-card.annotation-expanded .annotation-toggle {
-  background: var(--link);
-  border-color: var(--link);
-  color: var(--bg);
+  color: var(--link);
 }
 
 .paper-card.annotation-expanded .annotation-toggle .toggle-icon {
@@ -352,18 +353,16 @@ body.drawer-open {
   font-family: var(--font-sans);
   font-size: 0.75rem;
   font-weight: 500;
-  color: var(--bg);
-  background: var(--accent);
+  color: var(--accent);
+  background: transparent;
   border: none;
-  border-radius: 100px;
-  padding: 6px 14px;
+  padding: 4px 0;
   cursor: pointer;
-  transition: all var(--transition);
+  transition: color var(--transition);
 }
 
 .paper-detail-btn:hover {
-  background: var(--accent-hover);
-  transform: translateX(2px);
+  color: var(--accent-hover);
 }
 
 /* Expandable bodies */
@@ -587,7 +586,9 @@ body.drawer-open {
 .drawer-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-xs);
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.8125rem;
 }
 
 .drawer-cross-refs {
