@@ -90,6 +90,26 @@
     return papers.find(p => p.id === paperId);
   }
 
+  // Fetch and parse markdown summary file
+  async function fetchMarkdownSummary(summaryFile) {
+    try {
+      const response = await fetch(summaryFile);
+      if (!response.ok) return null;
+      let markdown = await response.text();
+
+      // Remove Bias Check section (## 9. Bias Check or ## Bias Check to end)
+      markdown = markdown.replace(/##\s*(?:\d+\.\s*)?Bias Check[\s\S]*$/i, '');
+
+      // Remove the title line (# Study Partner Summary... or first # line)
+      markdown = markdown.replace(/^#\s+[^\n]+\n+/, '');
+
+      return marked.parse(markdown);
+    } catch (error) {
+      console.error('Failed to load markdown summary:', error);
+      return null;
+    }
+  }
+
   // Get short reference for cross-ref display
   function getShortRef(paperId) {
     const paper = getPaperById(paperId);
@@ -154,7 +174,7 @@
   }
 
   // Render drawer content for a paper (study-partner summary)
-  function renderDrawerContent(paper) {
+  function renderDrawerContent(paper, markdownHtml = null) {
     const themeTags = paper.themes.map(t =>
       `<span class="tag theme" data-theme="${t}">${getThemeName(t)}</span>`
     ).join('');
@@ -169,12 +189,8 @@
         ).join('')
       : '<span style="color: var(--text-muted); font-size: 0.8125rem;">None specified</span>';
 
-    const questions = paper.discussionQuestions.map(q => `<li>${q}</li>`).join('');
-
-    // Use study-partner format summary
-    const s = paper.summary;
-
-    return `
+    // Header section (always shown)
+    const headerHtml = `
       <h2 class="drawer-title">${paper.citation.title}</h2>
       <p class="drawer-meta">
         <span>${formatAuthors(paper.citation.authors)}</span>
@@ -188,6 +204,35 @@
           ${methodTags}
         </div>
       </div>
+    `;
+
+    // Cross-references section (always shown at end)
+    const crossRefsHtml = `
+      <div class="drawer-section">
+        <p class="drawer-section-title">Cross-References</p>
+        <div class="drawer-cross-refs">
+          ${crossRefs}
+        </div>
+      </div>
+    `;
+
+    // If we have markdown, use it
+    if (markdownHtml) {
+      return `
+        ${headerHtml}
+        <div class="drawer-markdown-content">
+          ${markdownHtml}
+        </div>
+        ${crossRefsHtml}
+      `;
+    }
+
+    // Fallback to JSON summary
+    const questions = paper.discussionQuestions.map(q => `<li>${q}</li>`).join('');
+    const s = paper.summary;
+
+    return `
+      ${headerHtml}
 
       <div class="drawer-section">
         <p class="drawer-section-title">Overview of the Document</p>
@@ -219,12 +264,7 @@
         <p class="drawer-text">${s.conclusion}</p>
       </div>
 
-      <div class="drawer-section">
-        <p class="drawer-section-title">Cross-References</p>
-        <div class="drawer-cross-refs">
-          ${crossRefs}
-        </div>
-      </div>
+      ${crossRefsHtml}
 
       <div class="drawer-section">
         <p class="drawer-section-title">Discussion Questions</p>
@@ -243,15 +283,24 @@
   }
 
   // Open drawer with paper content
-  function openDrawer(paperId) {
+  async function openDrawer(paperId) {
     const paper = getPaperById(paperId);
     if (!paper) return;
 
-    drawerContent.innerHTML = renderDrawerContent(paper);
+    // Show loading state and open drawer immediately
+    drawerContent.innerHTML = '<p style="color: var(--text-muted); padding: 2rem;">Loading summary…</p>';
     drawer.classList.add('open');
     drawer.setAttribute('aria-hidden', 'false');
     drawerOverlay.classList.add('visible');
     document.body.classList.add('drawer-open');
+
+    // Fetch markdown if available
+    const markdownHtml = paper.summaryFile
+      ? await fetchMarkdownSummary(paper.summaryFile)
+      : null;
+
+    // Render full content
+    drawerContent.innerHTML = renderDrawerContent(paper, markdownHtml);
 
     // Focus the close button for accessibility
     drawerClose.focus();
